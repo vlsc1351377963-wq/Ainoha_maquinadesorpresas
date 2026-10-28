@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Una máquina de días bonitos — Para Ainhoa ✨</title>
+    <title>Una máquina de días bonitos — Para Ainoha ✨</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -180,20 +180,20 @@
         <div class="flex items-center gap-2 bg-white/80 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-pink-200/80">
             <span class="text-xl">✨</span>
             <span class="font-display font-bold text-sm sm:text-base text-purple-900 tracking-tight">
-                Una máquina de días bonitos <span class="text-pink-500">• Ainhoa</span>
+                Una máquina de días bonitos <span class="text-pink-500">• Ainoha</span>
             </span>
         </div>
 
         <!-- Botones de Colección, Sobrecitos y Sonido -->
         <div class="flex items-center gap-1.5 sm:gap-2.5">
             <!-- Progreso y Álbum -->
-            <button onclick="openModal('modal-album')" class="magic-btn flex items-center gap-1.5 bg-white/85 backdrop-blur-md hover:bg-pink-50 text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-purple-200" title="Álbum de momentos bonitos de Ainhoa">
+            <button onclick="openModal('modal-album')" class="magic-btn flex items-center gap-1.5 bg-white/85 backdrop-blur-md hover:bg-pink-50 text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-purple-200" title="Álbum de momentos bonitos de Ainoha">
                 <span>🏆</span>
                 <span class="hidden sm:inline">Álbum</span>
                 <span id="badge-counter" class="bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full text-xs font-extrabold">0/4</span>
             </button>
 
-            <!-- Sobrecitos para Ainhoa (Pantalla 5) -->
+            <!-- Sobrecitos para Ainoha (Pantalla 5) -->
             <button onclick="openModal('modal-messages')" class="magic-btn flex items-center gap-1.5 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-pink-200">
                 <span>💌</span>
                 <span>Sobrecitos</span>
@@ -216,11 +216,14 @@
         <section id="screen-welcome" class="w-full flex flex-col items-center text-center transition-opacity duration-500">
             <!-- Encabezado tierno -->
             <div class="inline-block bg-white/70 backdrop-blur-sm px-4 py-1 rounded-full text-xs sm:text-sm font-semibold text-pink-600 mb-2 border border-pink-100 shadow-sm">
-                🌸 Edición especial creada para Ainhoa 🌸
+                🌸 Edición especial creada para Ainoha 🌸
             </div>
             <h1 class="font-display text-2xl sm:text-4xl font-bold text-purple-950 mb-1 drop-shadow-sm">
                 Una máquina de días bonitos
             </h1>
+            <p class="text-purple-700/80 text-xs sm:text-sm max-w-md mb-3">
+                Un pequeño mundo interactivo sin prisas ni puntuaciones difíciles, listo para que Ainoha explore.
+            </p>
 
             <!-- Escena ilustrada: La Máquina Mágica + Gatito Acompañante -->
             <div id="machine-container" class="machine-off relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center my-1">
@@ -260,7 +263,7 @@
                     <!-- Pantalla central de la máquina -->
                     <rect x="78" y="124" width="104" height="46" rx="10" fill="#2E1065" stroke="#581C87" stroke-width="3"/>
                     <g class="machine-light">
-                        <text id="machine-screen-svg-text" x="130" y="145" text-anchor="middle" fill="#F9A8D4" font-family="Fredoka, sans-serif" font-size="11" font-weight="bold">HOLA AINHOA</text>
+                        <text id="machine-screen-svg-text" x="130" y="145" text-anchor="middle" fill="#F9A8D4" font-family="Fredoka, sans-serif" font-size="11" font-weight="bold">HOLA AINOHA</text>
                         <text x="130" y="160" text-anchor="middle" fill="#A7F3D0" font-family="Quicksand, sans-serif" font-size="9" font-weight="bold">♥ LISTA PARA BRILLAR ♥</text>
                     </g>
 
@@ -274,7 +277,7 @@
                     <rect x="161" y="210" width="24" height="16" rx="6" fill="#A855F7" stroke="#581C87" stroke-width="3"/>
                 </svg>
 
-                <!-- Personaje acompañante: Gatito Nube que parpadea y saluda a Ainhoa -->
+                <!-- Personaje acompañante: Gatito Nube que parpadea y saluda a Ainoha -->
                 <div id="companion-cat" class="absolute -right-4 bottom-3 sm:-right-8 sm:bottom-4 w-24 h-24 sm:w-28 sm:h-28 animate-float-cat pointer-events-none">
                     <svg viewBox="0 0 120 120" class="w-full h-full drop-shadow-md">
                         <!-- Orejitas -->
@@ -309,7 +312,7 @@
             <!-- Burbuja de diálogo de bienvenida personalizada -->
             <div id="welcome-dialogue" class="bg-white/90 backdrop-blur-md border-2 border-pink-200 rounded-3xl px-5 py-3.5 max-w-md shadow-md mb-4 transition-all duration-500 opacity-95">
                 <p id="welcome-text" class="text-sm sm:text-base font-semibold text-purple-900 leading-relaxed">
-                    «¡Hola, <span class="text-pink-600 font-bold">Ainhoa</span>! Esta máquina fabrica pequeños momentos bonitos especialmente para ti. ¿Quieres probarla?»
+                    «¡Hola, <span class="text-pink-600 font-bold">Ainoha</span>! Esta máquina fabrica pequeños momentos bonitos especialmente para ti. ¿Quieres probarla?»
                 </p>
             </div>
 
@@ -327,12 +330,12 @@
             <div class="bg-white/80 backdrop-blur-md px-5 py-2 rounded-full border border-purple-200 shadow-sm mb-3 flex items-center gap-2">
                 <span class="text-lg">🐱</span>
                 <span class="text-xs sm:text-sm font-bold text-purple-900">
-                    Máquina encendida y lista para <span class="text-pink-600">Ainhoa</span>
+                    Máquina encendida y lista para <span class="text-pink-600">Ainoha</span>
                 </span>
             </div>
 
             <h2 class="font-display text-xl sm:text-3xl font-bold text-purple-950 mb-1 px-2">
-                ¿Qué necesita tu día en este momento, <span class="text-pink-600">Ainhoa</span>?
+                ¿Qué necesita tu día en este momento, <span class="text-pink-600">Ainoha</span>?
             </h2>
             <p class="text-purple-700/80 text-xs sm:text-sm mb-5 max-w-lg">
                 Elige cualquiera de los cuatro caminos. No hay respuestas incorrectas y puedes explorar todos a tu ritmo.
@@ -353,7 +356,7 @@
                         </div>
                         <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero reírme</h3>
                         <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
-                            La fábrica de tonterías: chistes, respuestas absurdas y situaciones inesperadas para Ainhoa.
+                            La fábrica de tonterías: chistes, respuestas absurdas y situaciones inesperadas para Ainoha.
                         </p>
                     </div>
                 </button>
@@ -404,16 +407,16 @@
                         </div>
                         <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero una sorpresa</h3>
                         <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
-                            La caja misteriosa: pequeños regalos digitales, dibujos y mensajes ocultos para Ainhoa.
+                            La caja misteriosa: pequeños regalos digitales, dibujos y mensajes ocultos para Ainoha.
                         </p>
                     </div>
                 </button>
             </div>
 
-            <!-- Botón especial que brilla cuando Ainhoa completa las 4 experiencias (o acceso directo) -->
+            <!-- Botón especial que brilla cuando Ainoha completa las 4 experiencias (o acceso directo) -->
             <div class="flex flex-wrap items-center justify-center gap-3">
                 <button id="btn-finale-ready" onclick="goToScreen('screen-finale')" class="hidden magic-btn bg-gradient-to-r from-amber-300 via-pink-400 to-purple-500 text-white font-display font-bold text-sm sm:text-base px-6 py-3 rounded-full shadow-xl border-2 border-white animate-bounce">
-                    🌟 ¡Ver la sorpresa final de Ainhoa! 🌟
+                    🌟 ¡Ver la sorpresa final de Ainoha! 🌟
                 </button>
                 <button onclick="goToScreen('screen-welcome')" class="text-xs font-bold text-purple-700/80 hover:text-purple-950 underline">
                     ← Volver a la máquina principal
@@ -430,7 +433,7 @@
                     <span>←</span> <span>Volver al menú</span>
                 </button>
                 <div class="bg-pink-100 text-pink-700 px-3.5 py-1 rounded-full text-xs font-bold border border-pink-300">
-                    Risas de Ainhoa: <span id="silly-count">0</span>/3
+                    Risas de Ainoha: <span id="silly-count">0</span>/3
                 </div>
             </div>
 
@@ -439,7 +442,7 @@
                     LA FÁBRICA DE TONTERÍAS
                 </span>
                 <h2 class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-3">
-                    Generador de tonterías para <span class="text-pink-600">Ainhoa</span>
+                    Generador de tonterías para <span class="text-pink-600">Ainoha</span>
                 </h2>
 
                 <!-- Visor de animación y chiste -->
@@ -448,14 +451,14 @@
                     <div id="silly-placeholder" class="flex flex-col items-center">
                         <div class="text-5xl mb-2 animate-bounce">🎰</div>
                         <p class="text-purple-800 font-semibold text-sm sm:text-base max-w-xs">
-                            Pulsa «Sorpréndeme» para que la máquina fabrique una situación absurda o un chiste para Ainhoa.
+                            Pulsa «Sorpréndeme» para que la máquina fabrique una situación absurda o un chiste para Ainoha.
                         </p>
                     </div>
 
                     <!-- Estado cargando animación corta -->
                     <div id="silly-loading" class="hidden flex-col items-center">
                         <div class="text-5xl mb-3 animate-spin">⚙️</div>
-                        <p class="text-pink-600 font-bold text-sm">Mezclando chistes y tonterías para Ainhoa...</p>
+                        <p class="text-pink-600 font-bold text-sm">Mezclando chistes y tonterías para Ainoha...</p>
                     </div>
 
                     <!-- Contenido generado -->
@@ -496,7 +499,7 @@
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <div class="text-left">
                         <h2 class="font-display text-lg sm:text-xl font-bold text-purple-950">
-                            🌟 Atrapa las estrellitas, <span class="text-purple-600">Ainhoa</span>
+                            🌟 Atrapa las estrellitas, <span class="text-purple-600">Ainoha</span>
                         </h2>
                         <p class="text-xs text-purple-700">Toca las estrellas antes de que desaparezcan. Con 5 puntos desbloqueas tu frasco mágico.</p>
                     </div>
@@ -523,7 +526,7 @@
                     <!-- Mensaje de fin de partida o pausa -->
                     <div id="star-overlay" class="hidden absolute inset-0 bg-purple-950/80 backdrop-blur-sm z-20 flex-col items-center justify-center p-4 text-white">
                         <div class="text-4xl mb-2">✨🍯✨</div>
-                        <h3 class="font-display text-xl font-bold mb-1">¡Buen trabajo, Ainhoa!</h3>
+                        <h3 class="font-display text-xl font-bold mb-1">¡Buen trabajo, Ainoha!</h3>
                         <p id="star-overlay-text" class="text-xs sm:text-sm text-purple-100 max-w-xs mb-4">
                             Has atrapado muchas estrellitas luminosas.
                         </p>
@@ -550,10 +553,10 @@
 
             <div class="bg-indigo-950/60 backdrop-blur-md border-2 border-indigo-300/30 rounded-3xl p-5 sm:p-6 w-full shadow-2xl text-white relative overflow-hidden">
                 <span class="inline-block bg-emerald-400/20 text-emerald-200 text-xs font-extrabold px-3 py-1 rounded-full mb-1 border border-emerald-300/30">
-                    UN MINUTO DE CALMA PARA AINHOA
+                    UN MINUTO DE CALMA PARA AINOHA
                 </span>
                 <h2 class="font-display text-xl sm:text-2xl font-bold text-indigo-100 mb-1">
-                    Respira o simplemente mira el cielo, <span class="text-emerald-300">Ainhoa</span>
+                    Respira o simplemente mira el cielo, <span class="text-emerald-300">Ainoha</span>
                 </h2>
                 <p class="text-xs text-indigo-200/80 mb-3">
                     Toca cualquier parte de este cielo nocturno para encender estrellitas suaves.
@@ -577,7 +580,7 @@
                     <!-- Guía de respiración (se oculta si pulsa "Solo quiero mirar") -->
                     <div id="calm-breath-guide" class="relative z-10 mt-10 bg-indigo-950/75 px-5 py-2 rounded-full border border-indigo-300/30 pointer-events-none">
                         <p id="calm-breath-text" class="font-display text-sm sm:text-base font-bold text-emerald-200 tracking-wide">
-                            Inhala suavemente, Ainhoa... (4s)
+                            Inhala suavemente, Ainoha... (4s)
                         </p>
                     </div>
                 </div>
@@ -585,7 +588,7 @@
                 <!-- Frase tranquila final y botón para desbloquear la luna -->
                 <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15">
                     <p id="calm-quote" class="text-xs sm:text-sm italic text-indigo-100 text-left">
-                        «Ainhoa, está bien ir despacio. Este momento es solo para que descanses la mente.»
+                        «Ainoha, está bien ir despacio. Este momento es solo para que descanses la mente.»
                     </p>
                     <button onclick="claimCalmReward()" class="magic-btn shrink-0 bg-gradient-to-r from-emerald-300 to-teal-400 text-slate-900 font-display font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
                         🌙 Guardar luna de calma
@@ -609,10 +612,10 @@
 
             <div class="bg-white/90 backdrop-blur-md border-4 border-amber-200 rounded-3xl p-5 sm:p-6 w-full shadow-xl">
                 <span class="inline-block bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full mb-1">
-                    LA CAJA MISTERIOSA DE AINHOA
+                    LA CAJA MISTERIOSA DE AINOHA
                 </span>
                 <h2 id="surprise-headline" class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-2">
-                    Ainhoa, esta caja tiene algo guardado para ti
+                    Ainoha, esta caja tiene algo guardado para ti
                 </h2>
                 <p class="text-xs sm:text-sm text-purple-700/80 mb-4">
                     Puedes tocar la caja para agitarla o pulsar el botón «Abrir» para descubrir qué guarda dentro.
@@ -652,7 +655,7 @@
                             🌷
                         </div>
                         <span id="gift-tag" class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 mb-1">
-                            Regalo especial para Ainhoa
+                            Regalo especial para Ainoha
                         </span>
                         <h3 id="gift-title" class="font-display font-bold text-lg text-purple-950 mb-1"></h3>
                         <p id="gift-desc" class="text-xs sm:text-sm text-purple-900 bg-white/90 px-4 py-2.5 rounded-2xl border border-amber-200 max-w-md shadow-sm"></p>
@@ -662,14 +665,14 @@
                 <!-- Botones de acción -->
                 <div class="flex items-center justify-center gap-3">
                     <button id="btn-open-box" onclick="openMysteryBox()" class="magic-btn bg-gradient-to-r from-amber-400 to-pink-400 text-white font-display font-bold text-sm sm:text-base px-8 py-3 rounded-full shadow-md border-2 border-white">
-                        🎁 Abrir caja para Ainhoa
+                        🎁 Abrir caja para Ainoha
                     </button>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-             PANTALLA 6: FINAL DE LA EXPERIENCIA + JARDÍN DE AINHOA
+             PANTALLA 6: FINAL DE LA EXPERIENCIA + JARDÍN DE AINOHA
              ========================================== -->
         <section id="screen-finale" class="hidden w-full max-w-2xl flex-col items-center text-center animate-pop">
             <div class="bg-white/90 backdrop-blur-md border-4 border-pink-300 rounded-3xl p-5 sm:p-7 w-full shadow-2xl relative overflow-hidden">
@@ -694,7 +697,7 @@
                         <div class="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-400 via-purple-400 to-amber-300 p-1 shadow-xl flex items-center justify-center">
                             <div class="w-full h-full bg-white rounded-[20px] flex flex-col items-center justify-center">
                                 <span class="text-3xl">👑</span>
-                                <span class="font-display font-bold text-[11px] text-purple-900 mt-0.5">AINHOA</span>
+                                <span class="font-display font-bold text-[11px] text-purple-900 mt-0.5">AINOHA</span>
                             </div>
                         </div>
                     </div>
@@ -702,13 +705,13 @@
                     <!-- Tarjeta desplegada con el mensaje final -->
                     <div class="bg-gradient-to-br from-pink-50 via-white to-purple-50 border-2 border-pink-200 rounded-2xl p-5 max-w-lg shadow-sm my-3 text-left sm:text-center">
                         <h2 class="font-display text-2xl sm:text-3xl font-bold text-purple-950 mb-2 text-center">
-                            ¡Misión cumplida, <span class="text-pink-600">Ainhoa</span>! ✨
+                            ¡Misión cumplida, <span class="text-pink-600">Ainoha</span>! ✨
                         </h2>
                         <p class="text-sm sm:text-base text-purple-900 leading-relaxed mb-3 font-medium">
                             Has desbloqueado un pequeño rincón de cosas bonitas. Ojalá te lleves una sonrisa de aquí y recuerdes que también mereces momentos tranquilos, divertidos y bonitos.
                         </p>
                         <p class="text-xs sm:text-sm font-bold text-pink-600 bg-pink-100/70 px-4 py-2 rounded-xl inline-block">
-                            P. D. Este pequeño mundo lo hice con cariño, especialmente para ti, Ainhoa. 💖
+                            P. D. Este pequeño mundo lo hice con cariño, especialmente para ti, Ainoha. 💖
                         </p>
                     </div>
 
@@ -718,16 +721,16 @@
                             🔄 Volver a jugar
                         </button>
                         <button onclick="openGardenView()" class="magic-btn bg-gradient-to-r from-emerald-400 via-teal-400 to-pink-400 text-white font-display font-bold text-sm sm:text-base px-7 py-3 rounded-full shadow-lg border-2 border-white">
-                            🌸 Explorar el jardín de Ainhoa
+                            🌸 Explorar el jardín de Ainoha
                         </button>
                     </div>
                 </div>
 
-                <!-- Vista 2: El Jardín Interactivo de Ainhoa -->
+                <!-- Vista 2: El Jardín Interactivo de Ainoha -->
                 <div id="finale-garden-view" class="hidden flex-col items-center w-full animate-pop">
                     <div class="w-full flex items-center justify-between mb-2">
                         <button onclick="closeGardenView()" class="text-xs sm:text-sm font-bold text-purple-800 bg-purple-100 px-3.5 py-1.5 rounded-full border border-purple-200">
-                            ← Volver a la tarjeta de Ainhoa
+                            ← Volver a la tarjeta de Ainoha
                         </button>
                         <button onclick="clearGarden()" class="text-xs font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full">
                             ✨ Limpiar jardín
@@ -735,10 +738,10 @@
                     </div>
 
                     <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-1">
-                        🌷 El Jardín Secreto de <span class="text-pink-600">Ainhoa</span> 🌷
+                        🌷 El Jardín Secreto de <span class="text-pink-600">Ainoha</span> 🌷
                     </h3>
                     <p class="text-xs sm:text-sm text-purple-700 mb-3">
-                        Toca o haz clic en cualquier parte del césped para plantar flores mágicas y mariposas para Ainhoa.
+                        Toca o haz clic en cualquier parte del césped para plantar flores mágicas y mariposas para Ainoha.
                     </p>
 
                     <div id="interactive-garden" onclick="plantFlowerInGarden(event)" class="relative w-full h-64 sm:h-72 rounded-2xl bg-gradient-to-b from-sky-100 via-emerald-100 to-emerald-200 border-2 border-emerald-300 shadow-inner overflow-hidden cursor-pointer select-none">
@@ -746,7 +749,7 @@
                         <div class="absolute top-3 right-5 text-3xl animate-spin pointer-events-none" style="animation-duration: 20s;">☀️</div>
                         <div class="absolute top-4 left-6 text-2xl opacity-80 animate-float-slow pointer-events-none">☁️</div>
                         <div class="absolute bottom-3 inset-x-0 text-center text-[11px] font-bold text-emerald-800/70 pointer-events-none">
-                            Toca donde quieras para hacer florecer el jardín de Ainhoa 🌸
+                            Toca donde quieras para hacer florecer el jardín de Ainoha 🌸
                         </div>
                     </div>
                 </div>
@@ -762,7 +765,7 @@
     <div id="modal-reward" class="fixed inset-0 bg-purple-950/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
         <div class="bg-white border-4 border-pink-300 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl animate-pop">
             <div class="inline-block bg-yellow-100 text-amber-700 text-xs font-extrabold px-3 py-1 rounded-full mb-2 border border-amber-300">
-                🎉 ¡NUEVO RECUERDO PARA AINHOA!
+                🎉 ¡NUEVO RECUERDO PARA AINOHA!
             </div>
             <div id="reward-modal-icon" class="w-24 h-24 mx-auto my-2 rounded-3xl bg-gradient-to-tr from-pink-100 to-purple-100 border-2 border-pink-200 flex items-center justify-center text-5xl shadow-inner animate-bounce">
                 🏅
@@ -771,7 +774,7 @@
                 Experta en tonterías
             </h3>
             <p id="reward-modal-desc" class="text-sm text-purple-800 mb-5 leading-relaxed">
-                Ainhoa ha desbloqueado este objeto especial y ya está guardado en su Álbum de momentos bonitos.
+                Ainoha ha desbloqueado este objeto especial y ya está guardado en su Álbum de momentos bonitos.
             </p>
             <button onclick="closeRewardModal()" class="magic-btn bg-gradient-to-r from-pink-400 to-purple-500 text-white font-display font-bold text-sm sm:text-base px-8 py-3 rounded-full shadow-lg border-2 border-white w-full">
                 ✨ ¡Genial! Guardar en mi álbum
@@ -780,7 +783,7 @@
     </div>
 
     <!-- ==========================================
-         ÁLBUM DE MOMENTOS BONITOS DE AINHOA (MODAL)
+         ÁLBUM DE MOMENTOS BONITOS DE AINOHA (MODAL)
          ========================================== -->
     <div id="modal-album" class="fixed inset-0 bg-purple-950/60 backdrop-blur-sm z-40 hidden items-center justify-center p-4">
         <div class="bg-white/95 border-4 border-purple-200 rounded-3xl max-w-xl w-full p-5 sm:p-6 shadow-2xl animate-pop max-h-[90vh] overflow-y-auto">
@@ -788,7 +791,7 @@
                 <div class="flex items-center gap-2">
                     <span class="text-2xl">🏆</span>
                     <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950">
-                        Álbum de momentos bonitos de <span class="text-pink-600">Ainhoa</span>
+                        Álbum de momentos bonitos de <span class="text-pink-600">Ainoha</span>
                     </h3>
                 </div>
                 <button onclick="closeModal('modal-album')" class="w-8 h-8 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold flex items-center justify-center">
@@ -796,7 +799,7 @@
                 </button>
             </div>
             <p class="text-xs sm:text-sm text-purple-700 mb-4">
-                Cada actividad guarda un recuerdo especial para Ainhoa. Cuando consigas los 4, se activará la secuencia final.
+                Cada actividad guarda un recuerdo especial para Ainoha. Cuando consigas los 4, se activará la secuencia final.
             </p>
 
             <!-- Grid de los 4 coleccionables -->
@@ -806,7 +809,7 @@
 
             <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-purple-100">
                 <button onclick="closeModal('modal-album'); goToScreen('screen-finale');" class="text-xs font-bold text-pink-600 hover:text-pink-800 underline">
-                    ✨ Ir directamente a la pantalla final y jardín de Ainhoa
+                    ✨ Ir directamente a la pantalla final y jardín de Ainoha
                 </button>
                 <button onclick="closeModal('modal-album')" class="magic-btn bg-purple-600 text-white font-bold text-xs sm:text-sm px-6 py-2 rounded-full">
                     Cerrar álbum
@@ -824,7 +827,7 @@
                 <div class="flex items-center gap-2">
                     <span class="text-2xl">💌</span>
                     <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950">
-                        Sobrecitos para <span class="text-pink-600">Ainhoa</span>
+                        Sobrecitos para <span class="text-pink-600">Ainoha</span>
                     </h3>
                 </div>
                 <button onclick="closeModal('modal-messages')" class="w-8 h-8 rounded-full bg-pink-100 hover:bg-pink-200 text-purple-900 font-bold flex items-center justify-center">
@@ -832,7 +835,7 @@
                 </button>
             </div>
             <p class="text-xs sm:text-sm text-purple-700 mb-4">
-                Pequeñas notas opcionales guardadas para ti, Ainhoa. Elige qué tipo de sobrecito te apetece abrir ahora:
+                Pequeñas notas opcionales guardadas para ti, Ainoha. Elige qué tipo de sobrecito te apetece abrir ahora:
             </p>
 
             <!-- Tres categorías de mensajes -->
@@ -854,10 +857,10 @@
             <!-- Tarjeta donde aparece el mensaje del sobre -->
             <div id="envelope-display" class="bg-gradient-to-br from-pink-50 via-purple-50 to-amber-50 border-2 border-pink-200 rounded-2xl p-5 min-h-[120px] flex flex-col items-center justify-center text-center mb-4">
                 <span id="envelope-badge" class="text-[11px] font-extrabold uppercase tracking-wider text-pink-600 bg-white px-3 py-0.5 rounded-full border border-pink-200 mb-2">
-                    Nota para Ainhoa
+                    Nota para Ainoha
                 </span>
                 <p id="envelope-text" class="text-sm sm:text-base font-bold text-purple-950 leading-relaxed">
-                    «Se ha detectado un exceso de ternura cerca de Ainhoa. Enviaremos refuerzos de gatitos inmediatamente.» 🐾
+                    «Se ha detectado un exceso de ternura cerca de Ainoha. Enviaremos refuerzos de gatitos inmediatamente.» 🐾
                 </p>
             </div>
 
@@ -871,7 +874,7 @@
 
     <!-- Pie de página suave -->
     <footer class="relative z-10 text-center py-2 text-xs font-semibold text-purple-800/70">
-        Hecho con cariño para <span class="text-pink-600 font-bold">Ainhoa</span> • Sin prisas, sin perder, solo momentos bonitos ✨
+        Hecho con cariño para <span class="text-pink-600 font-bold">Ainoha</span> • Sin prisas, sin perder, solo momentos bonitos ✨
     </footer>
 
     <!-- ==========================================
@@ -879,7 +882,7 @@
          ========================================== -->
     <script>
         /* ----------------------------------------------------
-           1. ESTADO GLOBAL DE LA EXPERIENCIA DE AINHOA
+           1. ESTADO GLOBAL DE LA EXPERIENCIA DE AINOHA
         ---------------------------------------------------- */
         const state = {
             soundEnabled: true,
@@ -898,31 +901,31 @@
             calmBreathInterval: null,
             giftCount: 0,
             lastGiftIndex: -1,
-            // Los 4 coleccionables del Álbum de Ainhoa
+            // Los 4 coleccionables del Álbum de Ainoha
             rewards: {
                 laugh: {
                     unlocked: false,
                     icon: '🏅',
                     title: 'Insignia «Experta en tonterías»',
-                    desc: 'Concedida oficialmente a Ainhoa por explorar situaciones absurdas y reírse un ratito.'
+                    desc: 'Concedida oficialmente a Ainoha por explorar situaciones absurdas y reírse un ratito.'
                 },
                 distract: {
                     unlocked: false,
                     icon: '🍯',
                     title: 'Frasco de estrellitas brillantes',
-                    desc: 'Un pequeño frasco de cristal donde Ainhoa guarda la luz de las estrellas que atrapó.'
+                    desc: 'Un pequeño frasco de cristal donde Ainoha guarda la luz de las estrellas que atrapó.'
                 },
                 calm: {
                     unlocked: false,
                     icon: '🌙',
                     title: 'Luna pequeña de cristal',
-                    desc: 'Un recuerdo sereno para que Ainhoa tenga siempre a mano un minuto de paz.'
+                    desc: 'Un recuerdo sereno para que Ainoha tenga siempre a mano un minuto de paz.'
                 },
                 surprise: {
                     unlocked: false,
                     icon: '🗝️',
                     title: 'Llave mágica de sorpresas',
-                    desc: 'Desbloqueada por Ainhoa al abrir la caja misteriosa de regalos digitales.'
+                    desc: 'Desbloqueada por Ainoha al abrir la caja misteriosa de regalos digitales.'
                 }
             }
         };
@@ -1138,7 +1141,7 @@
             }, 350);
 
             const screenText = document.getElementById('machine-screen-svg-text');
-            if (screenText) screenText.textContent = '¡LISTA, AINHOA!';
+            if (screenText) screenText.textContent = '¡LISTA, AINOHA!';
 
             setTimeout(() => {
                 goToScreen('screen-menu');
@@ -1242,7 +1245,7 @@
                       </svg>`
             },
             {
-                text: '«Ainhoa, vengo a informarte de que hoy eres la directora ejecutiva de las siestas.» 🐱👔',
+                text: '«Ainoha, vengo a informarte de que hoy eres la directora ejecutiva de las siestas.» 🐱👔',
                 svg: `<svg class="w-28 h-28 animate-float-cat" viewBox="0 0 100 100">
                         <circle cx="50" cy="50" r="42" fill="#FCE7F3" stroke="#F472B6" stroke-width="3"/>
                         <polygon points="28,35 24,14 42,26" fill="#F9A8D4"/>
@@ -1256,7 +1259,7 @@
                       </svg>`
             },
             {
-                text: '«Pausa musical: Esta banana con gafas de sol ha venido exclusivamente a bailar una melodía corta para Ainhoa.» 🍌🕶️🎶',
+                text: '«Pausa musical: Esta banana con gafas de sol ha venido exclusivamente a bailar una melodía corta para Ainoha.» 🍌🕶️🎶',
                 svg: `<svg class="w-28 h-28 animate-dance" viewBox="0 0 100 100">
                         <path d="M35 18 C68 25 78 65 42 86 C26 70 25 40 35 18 Z" fill="#FDE047" stroke="#EAB308" stroke-width="3"/>
                         <!-- Gafas de sol -->
@@ -1268,7 +1271,7 @@
                       </svg>`
             },
             {
-                text: '«Esta nube intentó llover corazones para Ainhoa, pero se puso nerviosa y terminó lanzando pequeñas flores.» ☁️🌸',
+                text: '«Esta nube intentó llover corazones para Ainoha, pero se puso nerviosa y terminó lanzando pequeñas flores.» ☁️🌸',
                 svg: `<svg class="w-28 h-28 animate-float-slow" viewBox="0 0 100 100">
                         <path d="M22 56 C12 56 10 42 20 38 C20 25 36 22 44 30 C52 20 72 22 76 35 C88 36 90 52 78 56 Z" fill="#FFFFFF" stroke="#93C5FD" stroke-width="3"/>
                         <circle cx="40" cy="42" r="2.5" fill="#1E293B"/><circle cx="60" cy="42" r="2.5" fill="#1E293B"/>
@@ -1279,7 +1282,7 @@
                       </svg>`
             },
             {
-                text: '«Ainhoa, pregunta seria: ¿Qué hace una abeja en el gimnasio? ... ¡Zum-ba!» 🐝💪',
+                text: '«Ainoha, pregunta seria: ¿Qué hace una abeja en el gimnasio? ... ¡Zum-ba!» 🐝💪',
                 svg: `<svg class="w-28 h-28 animate-bounce" viewBox="0 0 100 100">
                         <ellipse cx="50" cy="52" rx="22" ry="16" fill="#FACC15" stroke="#1E293B" stroke-width="3"/>
                         <path d="M42 37 L42 67 M54 36 L54 68" stroke="#1E293B" stroke-width="5"/>
@@ -1292,7 +1295,7 @@
                       </svg>`
             },
             {
-                text: '«Informe urgente: Un patito con sombrero de mago declara que hoy Ainhoa está exenta de cualquier estrés.» 🦆🎩✨',
+                text: '«Informe urgente: Un patito con sombrero de mago declara que hoy Ainoha está exenta de cualquier estrés.» 🦆🎩✨',
                 svg: `<svg class="w-28 h-28 animate-float-cat" viewBox="0 0 100 100">
                         <circle cx="50" cy="58" r="24" fill="#FEF08A" stroke="#CA8A04" stroke-width="3"/>
                         <polygon points="36,38 64,38 50,12" fill="#7E22CE" stroke="#3B0764" stroke-width="2.5"/>
@@ -1301,7 +1304,7 @@
                       </svg>`
             },
             {
-                text: '«¿Qué hace un perro con un taladro, Ainhoa? ... ¡Ta-ladrando!» 🐶🔧',
+                text: '«¿Qué hace un perro con un taladro, Ainoha? ... ¡Ta-ladrando!» 🐶🔧',
                 svg: `<svg class="w-28 h-28 animate-dance" viewBox="0 0 100 100">
                         <circle cx="50" cy="52" r="26" fill="#FDE68A" stroke="#92400E" stroke-width="3"/>
                         <ellipse cx="26" cy="48" rx="7" ry="14" fill="#B45309"/>
@@ -1484,7 +1487,7 @@
 
                 // Efectos especiales según el objeto
                 if (type === 'heart') {
-                    showFloatingFeedback(field, item.style.left, `${posY}px`, '💖 ¡Brillo especial para Ainhoa! +2');
+                    showFloatingFeedback(field, item.style.left, `${posY}px`, '💖 ¡Brillo especial para Ainoha! +2');
                 } else if (type === 'cloud') {
                     showFloatingFeedback(field, item.style.left, `${posY}px`, '🎊 ¡Lluvia de confeti! +1');
                     createSparkleBurst(rect.left + 25, rect.top + 25);
@@ -1494,7 +1497,7 @@
 
                 item.remove();
 
-                // Al alcanzar 5 estrellas se desbloquea el frasco virtual de Ainhoa
+                // Al alcanzar 5 estrellas se desbloquea el frasco virtual de Ainoha
                 if (state.starScore >= 5 && !state.rewards.distract.unlocked) {
                     unlockReward('distract');
                 }
@@ -1516,7 +1519,7 @@
             clearInterval(state.starSpawner);
             const overlay = document.getElementById('star-overlay');
             document.getElementById('star-overlay-text').textContent =
-                `Ainhoa, atrapaste ${state.starScore} puntos de luz estelar. ¡Puedes jugar siempre que quieras!`;
+                `Ainoha, atrapaste ${state.starScore} puntos de luz estelar. ¡Puedes jugar siempre que quieras!`;
             overlay.classList.remove('hidden');
             overlay.classList.add('flex');
         }
@@ -1531,9 +1534,9 @@
            7. MÓDULO C: «QUIERO TRANQUILIDAD» (UN MINUTO DE CALMA)
         ---------------------------------------------------- */
         const calmQuotes = [
-            '«Ainhoa, está bien ir despacio. Este momento es solo para que descanses la mente.»',
-            '«Respira poquito a poco, Ainhoa. No tienes que resolver todo hoy.»',
-            '«Incluso las estrellas más bonitas necesitan oscuridad y calma para brillar, Ainhoa.»'
+            '«Ainoha, está bien ir despacio. Este momento es solo para que descanses la mente.»',
+            '«Respira poquito a poco, Ainoha. No tienes que resolver todo hoy.»',
+            '«Incluso las estrellas más bonitas necesitan oscuridad y calma para brillar, Ainoha.»'
         ];
 
         function enterCalmMode() {
@@ -1553,7 +1556,7 @@
                 // 1. Aumenta durante 4 segundos
                 star.style.transitionDuration = '4000ms';
                 star.className = 'relative z-10 flex items-center justify-center w-24 h-24 rounded-full pointer-events-none breath-inhale';
-                if (label) label.textContent = 'Inhala suavemente, Ainhoa... (4s)';
+                if (label) label.textContent = 'Inhala suavemente, Ainoha... (4s)';
 
                 // 2. Permanece grande durante 1 segundo
                 setTimeout(() => {
@@ -1629,50 +1632,50 @@
             {
                 icon: '💐',
                 tag: 'Ilustración floral',
-                title: 'Ramo de flores mágicas para Ainhoa',
-                desc: 'Un ramo digital de tulipanes y flores pastel que nunca se marchitan, para alegrar la pantalla de Ainhoa.'
+                title: 'Ramo de flores mágicas para Ainoha',
+                desc: 'Un ramo digital de tulipanes y flores pastel que nunca se marchitan, para alegrar la pantalla de Ainoha.'
             },
             {
                 icon: '🐱💖',
                 tag: 'Ternura',
                 title: 'Un gatito lanzando un beso',
-                desc: '¡Muak! Este pequeño gatito guardaba un abrazo y un besito volador especialmente para Ainhoa.'
+                desc: '¡Muak! Este pequeño gatito guardaba un abrazo y un besito volador especialmente para Ainoha.'
             },
             {
                 icon: '🎟️',
                 tag: 'Cupón oficial',
                 title: 'Vale por cero preocupaciones',
-                desc: 'Este cupón autoriza a Ainhoa a tomarse el resto del día con calma, comer algo rico y descansar.'
+                desc: 'Este cupón autoriza a Ainoha a tomarse el resto del día con calma, comer algo rico y descansar.'
             },
             {
                 icon: '🌌',
                 tag: 'Pequeño dibujo',
-                title: 'La Constelación de Ainhoa',
-                desc: 'Un mapa estelar dibujado a mano donde todas las estrellitas forman el nombre de Ainhoa en el cielo.'
+                title: 'La Constelación de Ainoha',
+                desc: 'Un mapa estelar dibujado a mano donde todas las estrellitas forman el nombre de Ainoha en el cielo.'
             },
             {
                 icon: '☕🍫',
                 tag: 'Momento calentito',
                 title: 'Tacita virtual de chocolate con nubes',
-                desc: 'Una bebida calentita imaginaria con malvaviscos suaves para acompañar a Ainhoa hoy.'
+                desc: 'Una bebida calentita imaginaria con malvaviscos suaves para acompañar a Ainoha hoy.'
             },
             {
                 icon: '⚖️😂',
                 tag: 'Toque de humor',
                 title: 'Certificado de Razón Absoluta',
-                desc: 'Documento oficial que certifica que Ainhoa tiene el 100% de la razón en su próxima conversación.'
+                desc: 'Documento oficial que certifica que Ainoha tiene el 100% de la razón en su próxima conversación.'
             },
             {
                 icon: '🌠',
                 tag: 'Deseo guardado',
                 title: 'Estrella fugaz embotellada',
-                desc: 'Pide un deseo en silencio, Ainhoa. Esta estrellita fugaz lo guardará por ti.'
+                desc: 'Pide un deseo en silencio, Ainoha. Esta estrellita fugaz lo guardará por ti.'
             },
             {
                 icon: '💌',
                 tag: 'Mensaje bonito',
-                title: 'Recordatorio para Ainhoa',
-                desc: 'Ainhoa, gracias por ser tú. Quien hizo esta máquina quería recordarte lo especial que eres.'
+                title: 'Recordatorio para Ainoha',
+                desc: 'Ainoha, gracias por ser tú. Quien hizo esta máquina quería recordarte lo especial que eres.'
             }
         ];
 
@@ -1681,7 +1684,7 @@
             const rev = document.getElementById('mystery-gift-revealed');
             rev.classList.add('hidden');
             rev.classList.remove('flex');
-            document.getElementById('btn-open-box').textContent = '🎁 Abrir caja para Ainhoa';
+            document.getElementById('btn-open-box').textContent = '🎁 Abrir caja para Ainoha';
         }
 
         function openMysteryBox() {
@@ -1713,7 +1716,7 @@
                 rev.classList.remove('hidden');
                 rev.classList.add('flex');
 
-                document.getElementById('btn-open-box').textContent = '🎁 Descubrir otro regalo para Ainhoa';
+                document.getElementById('btn-open-box').textContent = '🎁 Descubrir otro regalo para Ainoha';
 
                 state.giftCount = Math.min(8, state.giftCount + 1);
                 document.getElementById('gift-count').textContent = state.giftCount;
@@ -1725,7 +1728,7 @@
         }
 
         /* ----------------------------------------------------
-           9. SISTEMA DE RECOMPENSAS Y ÁLBUM DE AINHOA (PANTALLA 4)
+           9. SISTEMA DE RECOMPENSAS Y ÁLBUM DE AINOHA (PANTALLA 4)
         ---------------------------------------------------- */
         function unlockReward(key) {
             const r = state.rewards[key];
@@ -1786,7 +1789,7 @@
                         <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                             r.unlocked ? 'bg-pink-100 text-pink-700' : 'bg-gray-200 text-gray-600'
                         }">
-                            ${r.unlocked ? '✨ Desbloqueado por Ainhoa' : 'Por descubrir'}
+                            ${r.unlocked ? '✨ Desbloqueado por Ainoha' : 'Por descubrir'}
                         </span>
                         <h4 class="font-display font-bold text-sm sm:text-base text-purple-950 mt-1">${r.title}</h4>
                         <p class="text-xs text-purple-800/80 mt-0.5 leading-snug">${r.desc}</p>
@@ -1797,23 +1800,23 @@
         }
 
         /* ----------------------------------------------------
-           10. PANTALLA 5: MENSAJES PERSONALIZADOS PARA AINHOA
+           10. PANTALLA 5: MENSAJES PERSONALIZADOS PARA AINOHA
         ---------------------------------------------------- */
         const customMessages = {
             humor: [
-                '«Se ha detectado un exceso de ternura en la zona de Ainhoa. Enviaremos refuerzos de gatitos inmediatamente.» 🐾',
-                '«Aviso oficial de la máquina: Ainhoa queda libre de cualquier aburrimiento durante las próximas 24 horas.» 🚨✨',
-                '«Dato científico del día: El 99% de los gatitos aprueban la sonrisa de Ainhoa.» 🐱📊'
+                '«Se ha detectado un exceso de ternura en la zona de Ainoha. Enviaremos refuerzos de gatitos inmediatamente.» 🐾',
+                '«Aviso oficial de la máquina: Ainoha queda libre de cualquier aburrimiento durante las próximas 24 horas.» 🚨✨',
+                '«Dato científico del día: El 99% de los gatitos aprueban la sonrisa de Ainoha.» 🐱📊'
             ],
             kind: [
-                '«Ainhoa, no todos los días tienen que ser extraordinarios. A veces, con que haya un pequeño momento bonito, ya vale.» 🌸',
-                '«Recuerda ser igual de amable contigo misma que como lo eres con los demás, Ainhoa.» 🌿',
-                '«Paso a paso, Ainhoa. Mereces ratitos de paz donde nadie te pida nada.» ☁️✨'
+                '«Ainoha, no todos los días tienen que ser extraordinarios. A veces, con que haya un pequeño momento bonito, ya vale.» 🌸',
+                '«Recuerda ser igual de amable contigo misma que como lo eres con los demás, Ainoha.» 🌿',
+                '«Paso a paso, Ainoha. Mereces ratitos de paz donde nadie te pida nada.» ☁️✨'
             ],
             personal: [
-                '«Ainhoa, hice este pequeño rincón pensando en sacarte una sonrisa. Espero haberlo conseguido, aunque sea un poquito.» 💖',
-                '«Cada botón y estrellita de esta página lleva tu nombre, Ainhoa, porque quería regalarte algo único.» 🌟',
-                '«Cuando quieras distraerte, reírte o respirar tranquila, esta máquina siempre estará aquí para ti, Ainhoa.» 💌'
+                '«Ainoha, hice este pequeño rincón pensando en sacarte una sonrisa. Espero haberlo conseguido, aunque sea un poquito.» 💖',
+                '«Cada botón y estrellita de esta página lleva tu nombre, Ainoha, porque quería regalarte algo único.» 🌟',
+                '«Cuando quieras distraerte, reírte o respirar tranquila, esta máquina siempre estará aquí para ti, Ainoha.» 💌'
             ]
         };
 
@@ -1824,15 +1827,15 @@
             const badge = document.getElementById('envelope-badge');
             const textEl = document.getElementById('envelope-text');
 
-            if (category === 'humor') badge.textContent = '😹 Sobre de Humor para Ainhoa';
-            if (category === 'kind') badge.textContent = '🌿 Sobre Amable para Ainhoa';
-            if (category === 'personal') badge.textContent = '💖 Sobre Personal para Ainhoa';
+            if (category === 'humor') badge.textContent = '😹 Sobre de Humor para Ainoha';
+            if (category === 'kind') badge.textContent = '🌿 Sobre Amable para Ainoha';
+            if (category === 'personal') badge.textContent = '💖 Sobre Personal para Ainoha';
 
             textEl.textContent = msg;
         }
 
         /* ----------------------------------------------------
-           11. PANTALLA 6: JARDÍN INTERACTIVO DE AINHOA
+           11. PANTALLA 6: JARDÍN INTERACTIVO DE AINOHA
         ---------------------------------------------------- */
         function openGardenView() {
             playSfx('power');
