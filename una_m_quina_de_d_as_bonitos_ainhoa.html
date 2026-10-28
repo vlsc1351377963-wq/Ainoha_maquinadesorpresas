@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Una máquina de días bonitos — Para Ainhoa ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #FFD1DC;
+            --pastel-purple: #E2D1F9;
+            --pastel-mint: #D0F4DE;
+            --pastel-yellow: #FFF3B0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #ffeef8 0%, #f3e7ff 45%, #e2f5ff 100%);
+            color: #4a3560;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Fondo nocturno para el modo tranquilidad */
+        body.calm-night-mode {
+            background: linear-gradient(160deg, #1b1938 0%, #2b235a 50%, #1d3557 100%);
+            color: #f8f9fa;
+        }
+
+        /* Animaciones suaves */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+
+        @keyframes floatCat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-7px); }
+        }
+
+        @keyframes blinkEyes {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1); }
+        }
+
+        @keyframes wavePaw {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-18deg); }
+            75% { transform: rotate(14deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 165, 210, 0.6)); }
+            50% { filter: drop-shadow(0 0 20px rgba(255, 120, 195, 0.95)); }
+        }
+
+        @keyframes shakeBox {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            20% { transform: translateX(-8px) rotate(-6deg); }
+            40% { transform: translateX(8px) rotate(6deg); }
+            60% { transform: translateX(-6px) rotate(-4deg); }
+            80% { transform: translateX(6px) rotate(4deg); }
+        }
+
+        @keyframes danceBanana {
+            0%, 100% { transform: translateY(0) rotate(-8deg) scale(1); }
+            50% { transform: translateY(-12px) rotate(8deg) scale(1.06); }
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.88) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes orbitItem {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-8px) scale(1.06); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        .animate-float-slow { animation: floatSlow 5s ease-in-out infinite; }
+        .animate-float-cat { animation: floatCat 3.2s ease-in-out infinite; }
+        .animate-blink { animation: blinkEyes 4s infinite; transform-origin: center; }
+        .animate-wave { animation: wavePaw 1.8s ease-in-out infinite; transform-origin: bottom center; }
+        .animate-shake { animation: shakeBox 0.5s ease-in-out; }
+        .animate-dance { animation: danceBanana 0.65s ease-in-out infinite; }
+        .animate-pop { animation: popIn 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .animate-orbit { animation: orbitItem 3s ease-in-out infinite; }
+
+        /* Botones mágicos */
+        .magic-btn {
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .magic-btn:hover, .magic-btn:active {
+            transform: scale(1.04) translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.35);
+        }
+        .magic-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Tarjetas de estado de ánimo (Pantalla 2) */
+        .mood-btn {
+            transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .mood-btn:hover, .mood-btn:focus-visible, .mood-btn.touch-highlight {
+            transform: scale(1.035) translateY(-3px);
+            box-shadow: 0 14px 28px -6px rgba(147, 51, 234, 0.25), 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+        .mood-btn.selected-mood {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px #ffffff, 0 0 28px rgba(244, 114, 182, 0.85);
+            filter: brightness(1.05);
+        }
+
+        /* Estrella de respiración en modo calma */
+        #breathing-star-wrapper {
+            transition: transform 4s ease-in-out, filter 4s ease-in-out;
+        }
+        .breath-inhale {
+            transform: scale(1.65);
+            filter: drop-shadow(0 0 35px rgba(253, 224, 71, 0.95));
+        }
+        .breath-hold {
+            transform: scale(1.65);
+            filter: drop-shadow(0 0 45px rgba(255, 255, 255, 1));
+        }
+        .breath-exhale {
+            transform: scale(0.88);
+            filter: drop-shadow(0 0 12px rgba(253, 224, 71, 0.5));
+        }
+
+        /* Destello de pantalla */
+        #screen-flash {
+            pointer-events: none;
+            transition: opacity 0.45s ease-out;
+        }
+
+        /* Luces de la máquina apagadas inicialmente */
+        .machine-off .machine-light {
+            opacity: 0.25;
+            filter: grayscale(70%);
+            transition: all 0.7s ease;
+        }
+        .machine-on .machine-light {
+            opacity: 1;
+            filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.8));
+            transition: all 0.7s ease;
+        }
+
+        /* Scrollbar sutil */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(216, 180, 254, 0.6); border-radius: 9999px; }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between transition-colors duration-700">
+
+    <!-- Lienzo de fondo para estrellas pastel, nubes suaves y chispitas al tocar -->
+    <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Capa de destello blanco/rosa al encender la máquina -->
+    <div id="screen-flash" class="fixed inset-0 bg-white opacity-0 z-50"></div>
+
+    <!-- Barra Superior Persistente -->
+    <header class="relative z-20 w-full max-w-4xl mx-auto px-3 sm:px-6 pt-3 pb-1 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2 bg-white/80 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-pink-200/80">
+            <span class="text-xl">✨</span>
+            <span class="font-display font-bold text-sm sm:text-base text-purple-900 tracking-tight">
+                Una máquina de días bonitos <span class="text-pink-500">• Ainhoa</span>
+            </span>
+        </div>
+
+        <!-- Botones de Colección, Sobrecitos y Sonido -->
+        <div class="flex items-center gap-1.5 sm:gap-2.5">
+            <!-- Progreso y Álbum -->
+            <button onclick="openModal('modal-album')" class="magic-btn flex items-center gap-1.5 bg-white/85 backdrop-blur-md hover:bg-pink-50 text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-purple-200" title="Álbum de momentos bonitos de Ainhoa">
+                <span>🏆</span>
+                <span class="hidden sm:inline">Álbum</span>
+                <span id="badge-counter" class="bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full text-xs font-extrabold">0/4</span>
+            </button>
+
+            <!-- Sobrecitos para Ainhoa (Pantalla 5) -->
+            <button onclick="openModal('modal-messages')" class="magic-btn flex items-center gap-1.5 bg-gradient-to-r from-pink-100 to-purple-100 text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-pink-200">
+                <span>💌</span>
+                <span>Sobrecitos</span>
+            </button>
+
+            <!-- Botón de Sonido Web Audio API -->
+            <button id="btn-sound" onclick="toggleSound()" class="magic-btn flex items-center gap-1.5 bg-white/85 backdrop-blur-md text-purple-900 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-purple-200" aria-label="Activar o desactivar sonido">
+                <span id="sound-icon">🔊</span>
+                <span id="sound-label" class="hidden md:inline">Sonido: Sí</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de las Pantallas -->
+    <main class="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-4xl mx-auto px-4 py-2 sm:py-4">
+
+        <!-- ==========================================
+             PANTALLA 1: BIENVENIDA A LA MÁQUINA
+             ========================================== -->
+        <section id="screen-welcome" class="w-full flex flex-col items-center text-center transition-opacity duration-500">
+            <!-- Encabezado tierno -->
+            <div class="inline-block bg-white/70 backdrop-blur-sm px-4 py-1 rounded-full text-xs sm:text-sm font-semibold text-pink-600 mb-2 border border-pink-100 shadow-sm">
+                🌸 Edición especial creada para Ainhoa 🌸
+            </div>
+            <h1 class="font-display text-2xl sm:text-4xl font-bold text-purple-950 mb-1 drop-shadow-sm">
+                Una máquina de días bonitos
+            </h1>
+
+            <!-- Escena ilustrada: La Máquina Mágica + Gatito Acompañante -->
+            <div id="machine-container" class="machine-off relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center my-1">
+                <!-- Aura luminosa trasera -->
+                <div id="machine-aura" class="absolute inset-4 rounded-full bg-gradient-to-tr from-pink-300/40 via-purple-300/30 to-yellow-200/40 blur-2xl opacity-0 transition-opacity duration-700"></div>
+
+                <!-- SVG de la Máquina Fantástica -->
+                <svg class="w-full h-full drop-shadow-xl animate-float-slow" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Chimenea superior que suelta corazoncitos -->
+                    <rect x="115" y="18" width="30" height="24" rx="6" fill="#C084FC" stroke="#581C87" stroke-width="3"/>
+                    <ellipse cx="130" cy="18" rx="19" ry="6" fill="#E9D5FF" stroke="#581C87" stroke-width="3"/>
+                    <circle class="machine-light" cx="130" cy="8" r="5" fill="#F472B6"/>
+
+                    <!-- Antenas laterales -->
+                    <line x1="65" y1="75" x2="45" y2="45" stroke="#581C87" stroke-width="4" stroke-linecap="round"/>
+                    <circle class="machine-light" cx="43" cy="43" r="9" fill="#FDE047" stroke="#581C87" stroke-width="3"/>
+                    <line x1="195" y1="75" x2="215" y2="45" stroke="#581C87" stroke-width="4" stroke-linecap="round"/>
+                    <circle class="machine-light" cx="217" cy="43" r="9" fill="#6EE7B7" stroke="#581C87" stroke-width="3"/>
+
+                    <!-- Cúpula de cristal superior -->
+                    <path d="M75 90 C75 45, 185 45, 185 90 Z" fill="#E0F2FE" fill-opacity="0.75" stroke="#581C87" stroke-width="3.5"/>
+                    <!-- Estrella mágica flotando dentro de la cúpula -->
+                    <g class="machine-light">
+                        <polygon points="130,52 135,64 148,64 138,71 142,83 130,75 118,83 122,71 112,64 125,64" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5"/>
+                    </g>
+
+                    <!-- Cuerpo principal de la máquina -->
+                    <rect x="55" y="88" width="150" height="125" rx="26" fill="#FBCFE8" stroke="#581C87" stroke-width="4"/>
+                    <rect x="65" y="96" width="130" height="109" rx="20" fill="#FDF2F8" stroke="#F472B6" stroke-width="2"/>
+
+                    <!-- Bombillitas superiores del panel -->
+                    <circle class="machine-light" cx="90" cy="110" r="6" fill="#FB7185" stroke="#581C87" stroke-width="2"/>
+                    <circle class="machine-light" cx="116" cy="110" r="6" fill="#FACC15" stroke="#581C87" stroke-width="2"/>
+                    <circle class="machine-light" cx="144" cy="110" r="6" fill="#4ADE80" stroke="#581C87" stroke-width="2"/>
+                    <circle class="machine-light" cx="170" cy="110" r="6" fill="#60A5FA" stroke="#581C87" stroke-width="2"/>
+
+                    <!-- Pantalla central de la máquina -->
+                    <rect x="78" y="124" width="104" height="46" rx="10" fill="#2E1065" stroke="#581C87" stroke-width="3"/>
+                    <g class="machine-light">
+                        <text id="machine-screen-svg-text" x="130" y="145" text-anchor="middle" fill="#F9A8D4" font-family="Fredoka, sans-serif" font-size="11" font-weight="bold">HOLA AINHOA</text>
+                        <text x="130" y="160" text-anchor="middle" fill="#A7F3D0" font-family="Quicksand, sans-serif" font-size="9" font-weight="bold">♥ LISTA PARA BRILLAR ♥</text>
+                    </g>
+
+                    <!-- Botones y diales inferiores -->
+                    <circle cx="95" cy="188" r="10" fill="#C084FC" stroke="#581C87" stroke-width="2.5"/>
+                    <rect x="115" y="181" width="32" height="14" rx="7" fill="#F472B6" stroke="#581C87" stroke-width="2.5"/>
+                    <circle cx="167" cy="188" r="10" fill="#FDE047" stroke="#581C87" stroke-width="2.5"/>
+
+                    <!-- Patitas de la máquina -->
+                    <rect x="75" y="210" width="24" height="16" rx="6" fill="#A855F7" stroke="#581C87" stroke-width="3"/>
+                    <rect x="161" y="210" width="24" height="16" rx="6" fill="#A855F7" stroke="#581C87" stroke-width="3"/>
+                </svg>
+
+                <!-- Personaje acompañante: Gatito Nube que parpadea y saluda a Ainhoa -->
+                <div id="companion-cat" class="absolute -right-4 bottom-3 sm:-right-8 sm:bottom-4 w-24 h-24 sm:w-28 sm:h-28 animate-float-cat pointer-events-none">
+                    <svg viewBox="0 0 120 120" class="w-full h-full drop-shadow-md">
+                        <!-- Orejitas -->
+                        <polygon points="28,48 22,18 48,34" fill="#FFFFFF" stroke="#581C87" stroke-width="3.5" stroke-linejoin="round"/>
+                        <polygon points="30,42 26,24 43,34" fill="#FBCFE8"/>
+                        <polygon points="92,48 98,18 72,34" fill="#FFFFFF" stroke="#581C87" stroke-width="3.5" stroke-linejoin="round"/>
+                        <polygon points="90,42 94,24 77,34" fill="#FBCFE8"/>
+                        <!-- Cuerpo redondito tipo nube -->
+                        <ellipse cx="60" cy="68" rx="38" ry="34" fill="#FFFFFF" stroke="#581C87" stroke-width="3.5"/>
+                        <!-- Mejillas rosadas -->
+                        <ellipse cx="38" cy="68" rx="6" ry="3.5" fill="#F472B6" opacity="0.65"/>
+                        <ellipse cx="82" cy="68" rx="6" ry="3.5" fill="#F472B6" opacity="0.65"/>
+                        <!-- Ojitos que parpadean -->
+                        <g class="animate-blink">
+                            <circle cx="46" cy="60" r="4.5" fill="#3B0764"/>
+                            <circle cx="44.5" cy="58.5" r="1.5" fill="#FFFFFF"/>
+                            <circle cx="74" cy="60" r="4.5" fill="#3B0764"/>
+                            <circle cx="72.5" cy="58.5" r="1.5" fill="#FFFFFF"/>
+                        </g>
+                        <!-- Boquita feliz en w -->
+                        <path d="M54 66 Q57 70 60 66 Q63 70 66 66" stroke="#3B0764" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <!-- Patita saludando -->
+                        <g class="animate-wave" style="transform-origin: 24px 75px;">
+                            <ellipse cx="20" cy="68" rx="9" ry="6" transform="rotate(-25 20 68)" fill="#FFFFFF" stroke="#581C87" stroke-width="3"/>
+                        </g>
+                        <!-- Estrellita en la barriga -->
+                        <polygon points="60,77 62,82 67,82 63,85 65,90 60,87 55,90 57,85 53,82 58,82" fill="#FDE047"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Burbuja de diálogo de bienvenida personalizada -->
+            <div id="welcome-dialogue" class="bg-white/90 backdrop-blur-md border-2 border-pink-200 rounded-3xl px-5 py-3.5 max-w-md shadow-md mb-4 transition-all duration-500 opacity-95">
+                <p id="welcome-text" class="text-sm sm:text-base font-semibold text-purple-900 leading-relaxed">
+                    «¡Hola, <span class="text-pink-600 font-bold">Ainhoa</span>! Esta máquina fabrica pequeños momentos bonitos especialmente para ti. ¿Quieres probarla?»
+                </p>
+            </div>
+
+            <!-- Botón principal de encendido -->
+            <button id="btn-power-on" onclick="turnOnMachine()" class="magic-btn bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-500 text-white font-display font-bold text-base sm:text-lg px-8 py-3.5 rounded-full shadow-xl border-2 border-white flex items-center gap-2.5">
+                <span>⚡</span>
+                <span>Encender la máquina ✨</span>
+            </button>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 2: MENÚ DE ESTADOS DE ÁNIMO
+             ========================================== -->
+        <section id="screen-menu" class="hidden w-full flex-col items-center text-center animate-pop">
+            <div class="bg-white/80 backdrop-blur-md px-5 py-2 rounded-full border border-purple-200 shadow-sm mb-3 flex items-center gap-2">
+                <span class="text-lg">🐱</span>
+                <span class="text-xs sm:text-sm font-bold text-purple-900">
+                    Máquina encendida y lista para <span class="text-pink-600">Ainhoa</span>
+                </span>
+            </div>
+
+            <h2 class="font-display text-xl sm:text-3xl font-bold text-purple-950 mb-1 px-2">
+                ¿Qué necesita tu día en este momento, <span class="text-pink-600">Ainhoa</span>?
+            </h2>
+            <p class="text-purple-700/80 text-xs sm:text-sm mb-5 max-w-lg">
+                Elige cualquiera de los cuatro caminos. No hay respuestas incorrectas y puedes explorar todos a tu ritmo.
+            </p>
+
+            <!-- Cuadrícula de las 4 opciones -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full max-w-2xl mb-5">
+                
+                <!-- Opción A: Quiero reírme (Rosa) -->
+                <button id="card-laugh" onclick="selectMood('laugh', this)" class="mood-btn relative text-left bg-[#FFD1DC]/90 hover:bg-[#FFD1DC] border-2 border-pink-300 rounded-3xl p-4 sm:p-5 shadow-md flex items-start gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white/90 flex items-center justify-center text-3xl shadow-sm shrink-0 group-hover:rotate-6 transition-transform">
+                        😹
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-pink-700 bg-white/70 px-2 py-0.5 rounded-full">Opción A</span>
+                            <span id="check-laugh" class="hidden text-xs bg-white/90 text-pink-600 font-bold px-2 py-0.5 rounded-full shadow-sm">✨ Conseguido</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero reírme</h3>
+                        <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
+                            La fábrica de tonterías: chistes, respuestas absurdas y situaciones inesperadas para Ainhoa.
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Opción B: Quiero distraerme (Violeta) -->
+                <button id="card-distract" onclick="selectMood('distract', this)" class="mood-btn relative text-left bg-[#E2D1F9]/90 hover:bg-[#E2D1F9] border-2 border-purple-300 rounded-3xl p-4 sm:p-5 shadow-md flex items-start gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white/90 flex items-center justify-center text-3xl shadow-sm shrink-0 group-hover:rotate-6 transition-transform">
+                        🌟
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-purple-700 bg-white/70 px-2 py-0.5 rounded-full">Opción B</span>
+                            <span id="check-distract" class="hidden text-xs bg-white/90 text-purple-700 font-bold px-2 py-0.5 rounded-full shadow-sm">✨ Conseguido</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero distraerme</h3>
+                        <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
+                            Atrapa las estrellitas: un cielo mágico con estrellas, corazones y nubecitas de confeti.
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Opción C: Quiero tranquilidad (Verde menta) -->
+                <button id="card-calm" onclick="selectMood('calm', this)" class="mood-btn relative text-left bg-[#D0F4DE]/90 hover:bg-[#D0F4DE] border-2 border-emerald-300 rounded-3xl p-4 sm:p-5 shadow-md flex items-start gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white/90 flex items-center justify-center text-3xl shadow-sm shrink-0 group-hover:rotate-6 transition-transform">
+                        🌙
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-800 bg-white/70 px-2 py-0.5 rounded-full">Opción C</span>
+                            <span id="check-calm" class="hidden text-xs bg-white/90 text-emerald-700 font-bold px-2 py-0.5 rounded-full shadow-sm">✨ Conseguido</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero tranquilidad</h3>
+                        <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
+                            Un minuto de calma: estrellas luminosas, brisa suave y respiración opcional sin prisas.
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Opción D: Quiero una sorpresa (Amarillo pastel) -->
+                <button id="card-surprise" onclick="selectMood('surprise', this)" class="mood-btn relative text-left bg-[#FFF3B0]/95 hover:bg-[#FFF3B0] border-2 border-amber-300 rounded-3xl p-4 sm:p-5 shadow-md flex items-start gap-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-white/90 flex items-center justify-center text-3xl shadow-sm shrink-0 group-hover:rotate-6 transition-transform">
+                        🎁
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-800 bg-white/70 px-2 py-0.5 rounded-full">Opción D</span>
+                            <span id="check-surprise" class="hidden text-xs bg-white/90 text-amber-700 font-bold px-2 py-0.5 rounded-full shadow-sm">✨ Conseguido</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-purple-950 mt-1">Quiero una sorpresa</h3>
+                        <p class="text-xs sm:text-sm text-purple-900/80 mt-0.5 leading-snug">
+                            La caja misteriosa: pequeños regalos digitales, dibujos y mensajes ocultos para Ainhoa.
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Botón especial que brilla cuando Ainhoa completa las 4 experiencias (o acceso directo) -->
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <button id="btn-finale-ready" onclick="goToScreen('screen-finale')" class="hidden magic-btn bg-gradient-to-r from-amber-300 via-pink-400 to-purple-500 text-white font-display font-bold text-sm sm:text-base px-6 py-3 rounded-full shadow-xl border-2 border-white animate-bounce">
+                    🌟 ¡Ver la sorpresa final de Ainhoa! 🌟
+                </button>
+                <button onclick="goToScreen('screen-welcome')" class="text-xs font-bold text-purple-700/80 hover:text-purple-950 underline">
+                    ← Volver a la máquina principal
+                </button>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3A: MÓDULO «QUIERO REÍRME»
+             ========================================== -->
+        <section id="screen-laugh" class="hidden w-full max-w-xl flex-col items-center text-center animate-pop">
+            <div class="w-full flex items-center justify-between mb-3">
+                <button onclick="goToScreen('screen-menu')" class="magic-btn bg-white/85 text-purple-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-pink-200 flex items-center gap-1.5">
+                    <span>←</span> <span>Volver al menú</span>
+                </button>
+                <div class="bg-pink-100 text-pink-700 px-3.5 py-1 rounded-full text-xs font-bold border border-pink-300">
+                    Risas de Ainhoa: <span id="silly-count">0</span>/3
+                </div>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-md border-4 border-pink-200 rounded-3xl p-5 sm:p-6 w-full shadow-xl">
+                <span class="inline-block bg-pink-100 text-pink-600 text-xs font-extrabold px-3 py-1 rounded-full mb-1">
+                    LA FÁBRICA DE TONTERÍAS
+                </span>
+                <h2 class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-3">
+                    Generador de tonterías para <span class="text-pink-600">Ainhoa</span>
+                </h2>
+
+                <!-- Visor de animación y chiste -->
+                <div id="silly-stage" class="relative bg-gradient-to-b from-pink-50 to-purple-50 border-2 border-pink-200 rounded-2xl h-56 sm:h-64 flex flex-col items-center justify-center p-4 mb-4 overflow-hidden">
+                    <!-- Estado inicial -->
+                    <div id="silly-placeholder" class="flex flex-col items-center">
+                        <div class="text-5xl mb-2 animate-bounce">🎰</div>
+                        <p class="text-purple-800 font-semibold text-sm sm:text-base max-w-xs">
+                            Pulsa «Sorpréndeme» para que la máquina fabrique una situación absurda o un chiste para Ainhoa.
+                        </p>
+                    </div>
+
+                    <!-- Estado cargando animación corta -->
+                    <div id="silly-loading" class="hidden flex-col items-center">
+                        <div class="text-5xl mb-3 animate-spin">⚙️</div>
+                        <p class="text-pink-600 font-bold text-sm">Mezclando chistes y tonterías para Ainhoa...</p>
+                    </div>
+
+                    <!-- Contenido generado -->
+                    <div id="silly-content" class="hidden flex-col items-center justify-center w-full h-full">
+                        <div id="silly-svg-box" class="mb-3 flex items-center justify-center h-28"></div>
+                        <p id="silly-text" class="text-purple-950 font-bold text-sm sm:text-base leading-snug max-w-md bg-white/90 px-4 py-2.5 rounded-2xl shadow-sm border border-pink-200"></p>
+                    </div>
+                </div>
+
+                <!-- Controles del generador -->
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <button id="btn-silly-generate" onclick="triggerSilly()" class="magic-btn bg-gradient-to-r from-pink-400 to-rose-400 text-white font-display font-bold text-sm sm:text-base px-7 py-3 rounded-full shadow-md border-2 border-white">
+                        ✨ Sorpréndeme
+                    </button>
+                    <button id="btn-silly-skip" onclick="skipSillyAnimation()" class="hidden magic-btn bg-purple-100 text-purple-800 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-full border border-purple-300">
+                        ⏭️ Saltar animación
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3B: MÓDULO «QUIERO DISTRAERME»
+             ========================================== -->
+        <section id="screen-distract" class="hidden w-full max-w-xl flex-col items-center text-center animate-pop">
+            <div class="w-full flex flex-wrap items-center justify-between gap-2 mb-3">
+                <button onclick="stopStarGameAndReturn()" class="magic-btn bg-white/85 text-purple-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-purple-200 flex items-center gap-1.5">
+                    <span>←</span> <span>Volver al menú</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <button id="btn-star-mode" onclick="toggleStarTimerMode()" class="bg-purple-100 hover:bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-xs font-bold border border-purple-300 transition">
+                        ⏱️ Modo: 45s (Cambiar a Libre)
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-md border-4 border-purple-200 rounded-3xl p-4 sm:p-5 w-full shadow-xl">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                    <div class="text-left">
+                        <h2 class="font-display text-lg sm:text-xl font-bold text-purple-950">
+                            🌟 Atrapa las estrellitas, <span class="text-purple-600">Ainhoa</span>
+                        </h2>
+                        <p class="text-xs text-purple-700">Toca las estrellas antes de que desaparezcan. Con 5 puntos desbloqueas tu frasco mágico.</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="bg-purple-100 text-purple-900 px-3 py-1 rounded-2xl text-xs sm:text-sm font-extrabold border border-purple-300">
+                            ⭐ Puntos: <span id="star-score">0</span>
+                        </div>
+                        <div id="star-timer-box" class="bg-pink-100 text-pink-700 px-3 py-1 rounded-2xl text-xs sm:text-sm font-extrabold border border-pink-300">
+                            ⏳ <span id="star-timer">45</span>s
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leyenda rápida de objetos -->
+                <div class="grid grid-cols-4 gap-1.5 text-[11px] font-bold bg-purple-50/90 p-2 rounded-2xl mb-3 border border-purple-100">
+                    <div class="flex items-center justify-center gap-1 text-amber-600">⭐ Normal (+1)</div>
+                    <div class="flex items-center justify-center gap-1 text-pink-600">🌟 Rosa (+2)</div>
+                    <div class="flex items-center justify-center gap-1 text-rose-600">💖 Corazón (Brillo)</div>
+                    <div class="flex items-center justify-center gap-1 text-sky-600">☁️ Nubecita (Confeti)</div>
+                </div>
+
+                <!-- Cielo interactivo de juego -->
+                <div id="star-playfield" class="relative w-full h-64 sm:h-72 rounded-2xl bg-gradient-to-b from-[#1e1b4b] via-[#311042] to-[#4c1d95] overflow-hidden shadow-inner border-2 border-purple-300 select-none">
+                    <!-- Mensaje de fin de partida o pausa -->
+                    <div id="star-overlay" class="hidden absolute inset-0 bg-purple-950/80 backdrop-blur-sm z-20 flex-col items-center justify-center p-4 text-white">
+                        <div class="text-4xl mb-2">✨🍯✨</div>
+                        <h3 class="font-display text-xl font-bold mb-1">¡Buen trabajo, Ainhoa!</h3>
+                        <p id="star-overlay-text" class="text-xs sm:text-sm text-purple-100 max-w-xs mb-4">
+                            Has atrapado muchas estrellitas luminosas.
+                        </p>
+                        <button onclick="startStarGame()" class="magic-btn bg-gradient-to-r from-pink-400 to-purple-400 text-white font-bold px-6 py-2.5 rounded-full text-sm border border-white">
+                            🔄 Jugar otra vez
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3C: MÓDULO «QUIERO TRANQUILIDAD»
+             ========================================== -->
+        <section id="screen-calm" class="hidden w-full max-w-xl flex-col items-center text-center animate-pop">
+            <div class="w-full flex items-center justify-between mb-3">
+                <button onclick="exitCalmMode()" class="magic-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-white/40 flex items-center gap-1.5 backdrop-blur-md">
+                    <span>←</span> <span>Volver al menú</span>
+                </button>
+                <button id="btn-calm-just-look" onclick="toggleJustLookMode()" class="magic-btn bg-emerald-400/25 hover:bg-emerald-400/40 text-emerald-100 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-emerald-300/50 backdrop-blur-md">
+                    👁️ Solo quiero mirar
+                </button>
+            </div>
+
+            <div class="bg-indigo-950/60 backdrop-blur-md border-2 border-indigo-300/30 rounded-3xl p-5 sm:p-6 w-full shadow-2xl text-white relative overflow-hidden">
+                <span class="inline-block bg-emerald-400/20 text-emerald-200 text-xs font-extrabold px-3 py-1 rounded-full mb-1 border border-emerald-300/30">
+                    UN MINUTO DE CALMA PARA AINHOA
+                </span>
+                <h2 class="font-display text-xl sm:text-2xl font-bold text-indigo-100 mb-1">
+                    Respira o simplemente mira el cielo, <span class="text-emerald-300">Ainhoa</span>
+                </h2>
+                <p class="text-xs text-indigo-200/80 mb-3">
+                    Toca cualquier parte de este cielo nocturno para encender estrellitas suaves.
+                </p>
+
+                <!-- Escenario de respiración y estrellas interactivas -->
+                <div id="calm-sky-box" onclick="spawnCalmStar(event)" class="relative w-full h-64 sm:h-72 rounded-2xl bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#1e293b] border border-indigo-400/30 flex flex-col items-center justify-center overflow-hidden cursor-pointer">
+                    
+                    <!-- Nubes nocturnas que se mueven despacio -->
+                    <div class="absolute top-6 left-6 opacity-25 text-4xl animate-float-slow pointer-events-none">☁️</div>
+                    <div class="absolute bottom-8 right-8 opacity-25 text-5xl animate-float-slow pointer-events-none" style="animation-delay: 2s;">☁️</div>
+
+                    <!-- Estrella luminosa central (4s crece, 1s mantiene, 4s disminuye) -->
+                    <div id="breathing-star-wrapper" class="relative z-10 flex items-center justify-center w-24 h-24 rounded-full pointer-events-none">
+                        <div class="absolute inset-0 rounded-full bg-amber-300/30 blur-xl"></div>
+                        <svg class="w-20 h-20 text-yellow-200 drop-shadow-[0_0_20px_rgba(253,224,71,0.9)]" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M50 5 L61 36 L94 38 L68 59 L76 91 L50 73 L24 91 L32 59 L6 38 L39 36 Z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Guía de respiración (se oculta si pulsa "Solo quiero mirar") -->
+                    <div id="calm-breath-guide" class="relative z-10 mt-10 bg-indigo-950/75 px-5 py-2 rounded-full border border-indigo-300/30 pointer-events-none">
+                        <p id="calm-breath-text" class="font-display text-sm sm:text-base font-bold text-emerald-200 tracking-wide">
+                            Inhala suavemente, Ainhoa... (4s)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Frase tranquila final y botón para desbloquear la luna -->
+                <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 bg-white/10 p-3.5 rounded-2xl border border-white/15">
+                    <p id="calm-quote" class="text-xs sm:text-sm italic text-indigo-100 text-left">
+                        «Ainhoa, está bien ir despacio. Este momento es solo para que descanses la mente.»
+                    </p>
+                    <button onclick="claimCalmReward()" class="magic-btn shrink-0 bg-gradient-to-r from-emerald-300 to-teal-400 text-slate-900 font-display font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full shadow-md">
+                        🌙 Guardar luna de calma
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 3D: MÓDULO «QUIERO UNA SORPRESA»
+             ========================================== -->
+        <section id="screen-surprise" class="hidden w-full max-w-xl flex-col items-center text-center animate-pop">
+            <div class="w-full flex items-center justify-between mb-3">
+                <button onclick="goToScreen('screen-menu')" class="magic-btn bg-white/85 text-purple-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm border border-amber-300 flex items-center gap-1.5">
+                    <span>←</span> <span>Volver al menú</span>
+                </button>
+                <span class="bg-amber-100 text-amber-800 px-3.5 py-1 rounded-full text-xs font-bold border border-amber-300">
+                    Regalos descubiertos: <span id="gift-count">0</span>/8
+                </span>
+            </div>
+
+            <div class="bg-white/90 backdrop-blur-md border-4 border-amber-200 rounded-3xl p-5 sm:p-6 w-full shadow-xl">
+                <span class="inline-block bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full mb-1">
+                    LA CAJA MISTERIOSA DE AINHOA
+                </span>
+                <h2 id="surprise-headline" class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-2">
+                    Ainhoa, esta caja tiene algo guardado para ti
+                </h2>
+                <p class="text-xs sm:text-sm text-purple-700/80 mb-4">
+                    Puedes tocar la caja para agitarla o pulsar el botón «Abrir» para descubrir qué guarda dentro.
+                </p>
+
+                <!-- Escenario de la Caja y el Regalo -->
+                <div class="relative bg-gradient-to-b from-amber-50/90 to-pink-50/90 border-2 border-amber-200 rounded-2xl min-h-[230px] flex flex-col items-center justify-center p-5 mb-4">
+                    
+                    <!-- Caja cerrada interactiva -->
+                    <div id="mystery-box-closed" onclick="openMysteryBox()" class="cursor-pointer flex flex-col items-center group">
+                        <div id="mystery-box-svg" class="w-36 h-36 flex items-center justify-center transition-transform group-hover:scale-105">
+                            <svg viewBox="0 0 140 140" class="w-full h-full drop-shadow-lg">
+                                <!-- Cuerpo de la caja -->
+                                <rect x="25" y="55" width="90" height="68" rx="10" fill="#FDE047" stroke="#78350F" stroke-width="4"/>
+                                <!-- Cinta vertical -->
+                                <rect x="60" y="55" width="20" height="68" fill="#F43F5E" stroke="#78350F" stroke-width="3"/>
+                                <!-- Tapa de la caja -->
+                                <rect x="18" y="38" width="104" height="22" rx="7" fill="#FEF08A" stroke="#78350F" stroke-width="4"/>
+                                <rect x="58" y="38" width="24" height="22" fill="#FB7185" stroke="#78350F" stroke-width="3"/>
+                                <!-- Lazo superior -->
+                                <path d="M70 38 C50 14, 30 28, 56 38 Z" fill="#F43F5E" stroke="#78350F" stroke-width="3.5"/>
+                                <path d="M70 38 C90 14, 110 28, 84 38 Z" fill="#F43F5E" stroke="#78350F" stroke-width="3.5"/>
+                                <circle cx="70" cy="36" r="6" fill="#FFE4E6" stroke="#78350F" stroke-width="3"/>
+                                <!-- Estrellitas decorativas -->
+                                <text x="34" y="88" font-size="16">✨</text>
+                                <text x="90" y="102" font-size="16">🌸</text>
+                            </svg>
+                        </div>
+                        <span class="text-xs font-bold text-amber-800 bg-amber-100/90 px-3 py-1 rounded-full mt-1 border border-amber-300">
+                            👆 Tócame para abrir
+                        </span>
+                    </div>
+
+                    <!-- Regalo revelado -->
+                    <div id="mystery-gift-revealed" class="hidden flex-col items-center text-center animate-pop">
+                        <div id="gift-illustration" class="w-28 h-28 rounded-3xl bg-white shadow-md border-2 border-amber-200 flex items-center justify-center text-5xl mb-3">
+                            🌷
+                        </div>
+                        <span id="gift-tag" class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 mb-1">
+                            Regalo especial para Ainhoa
+                        </span>
+                        <h3 id="gift-title" class="font-display font-bold text-lg text-purple-950 mb-1"></h3>
+                        <p id="gift-desc" class="text-xs sm:text-sm text-purple-900 bg-white/90 px-4 py-2.5 rounded-2xl border border-amber-200 max-w-md shadow-sm"></p>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="flex items-center justify-center gap-3">
+                    <button id="btn-open-box" onclick="openMysteryBox()" class="magic-btn bg-gradient-to-r from-amber-400 to-pink-400 text-white font-display font-bold text-sm sm:text-base px-8 py-3 rounded-full shadow-md border-2 border-white">
+                        🎁 Abrir caja para Ainhoa
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PANTALLA 6: FINAL DE LA EXPERIENCIA + JARDÍN DE AINHOA
+             ========================================== -->
+        <section id="screen-finale" class="hidden w-full max-w-2xl flex-col items-center text-center animate-pop">
+            <div class="bg-white/90 backdrop-blur-md border-4 border-pink-300 rounded-3xl p-5 sm:p-7 w-full shadow-2xl relative overflow-hidden">
+                
+                <!-- Vista 1: Secuencia de la Máquina Iluminada y Tarjeta Final -->
+                <div id="finale-card-view" class="flex flex-col items-center">
+                    <span class="inline-block bg-gradient-to-r from-pink-100 to-amber-100 text-pink-700 text-xs font-extrabold px-4 py-1 rounded-full mb-2 border border-pink-300">
+                        ✨ COLECCIÓN DE DÍAS BONITOS COMPLETADA ✨
+                    </span>
+
+                    <!-- Máquina iluminada rodeada de los 4 objetos flotando -->
+                    <div class="relative w-56 h-44 flex items-center justify-center my-2">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-amber-200/60 via-pink-300/60 to-purple-300/60 blur-2xl animate-pulse"></div>
+                        
+                        <!-- Los 4 objetos coleccionables flotando alrededor -->
+                        <div class="absolute -top-1 left-4 w-12 h-12 rounded-2xl bg-white shadow-md border-2 border-pink-300 flex items-center justify-center text-2xl animate-orbit" style="animation-delay: 0s;" title="Insignia Experta en tonterías">🏅</div>
+                        <div class="absolute -top-1 right-4 w-12 h-12 rounded-2xl bg-white shadow-md border-2 border-purple-300 flex items-center justify-center text-2xl animate-orbit" style="animation-delay: 0.6s;" title="Frasco de estrellitas brillantes">🍯</div>
+                        <div class="absolute bottom-1 left-2 w-12 h-12 rounded-2xl bg-white shadow-md border-2 border-emerald-300 flex items-center justify-center text-2xl animate-orbit" style="animation-delay: 1.2s;" title="Luna pequeña de cristal">🌙</div>
+                        <div class="absolute bottom-1 right-2 w-12 h-12 rounded-2xl bg-white shadow-md border-2 border-amber-300 flex items-center justify-center text-2xl animate-orbit" style="animation-delay: 1.8s;" title="Llave mágica de sorpresas">🗝️</div>
+
+                        <!-- Centro: Corazón de la máquina -->
+                        <div class="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-tr from-pink-400 via-purple-400 to-amber-300 p-1 shadow-xl flex items-center justify-center">
+                            <div class="w-full h-full bg-white rounded-[20px] flex flex-col items-center justify-center">
+                                <span class="text-3xl">👑</span>
+                                <span class="font-display font-bold text-[11px] text-purple-900 mt-0.5">AINHOA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta desplegada con el mensaje final -->
+                    <div class="bg-gradient-to-br from-pink-50 via-white to-purple-50 border-2 border-pink-200 rounded-2xl p-5 max-w-lg shadow-sm my-3 text-left sm:text-center">
+                        <h2 class="font-display text-2xl sm:text-3xl font-bold text-purple-950 mb-2 text-center">
+                            ¡Misión cumplida, <span class="text-pink-600">Ainhoa</span>! ✨
+                        </h2>
+                        <p class="text-sm sm:text-base text-purple-900 leading-relaxed mb-3 font-medium">
+                            Has desbloqueado un pequeño rincón de cosas bonitas. Ojalá te lleves una sonrisa de aquí y recuerdes que también mereces momentos tranquilos, divertidos y bonitos.
+                        </p>
+                        <p class="text-xs sm:text-sm font-bold text-pink-600 bg-pink-100/70 px-4 py-2 rounded-xl inline-block">
+                            P. D. Este pequeño mundo lo hice con cariño, especialmente para ti, Ainhoa. 💖
+                        </p>
+                    </div>
+
+                    <!-- Dos botones finales -->
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-2">
+                        <button onclick="goToScreen('screen-menu')" class="magic-btn bg-purple-100 hover:bg-purple-200 text-purple-900 font-display font-bold text-sm sm:text-base px-6 py-3 rounded-full border-2 border-purple-300">
+                            🔄 Volver a jugar
+                        </button>
+                        <button onclick="openGardenView()" class="magic-btn bg-gradient-to-r from-emerald-400 via-teal-400 to-pink-400 text-white font-display font-bold text-sm sm:text-base px-7 py-3 rounded-full shadow-lg border-2 border-white">
+                            🌸 Explorar el jardín de Ainhoa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Vista 2: El Jardín Interactivo de Ainhoa -->
+                <div id="finale-garden-view" class="hidden flex-col items-center w-full animate-pop">
+                    <div class="w-full flex items-center justify-between mb-2">
+                        <button onclick="closeGardenView()" class="text-xs sm:text-sm font-bold text-purple-800 bg-purple-100 px-3.5 py-1.5 rounded-full border border-purple-200">
+                            ← Volver a la tarjeta de Ainhoa
+                        </button>
+                        <button onclick="clearGarden()" class="text-xs font-bold text-pink-700 bg-pink-100 px-3 py-1 rounded-full">
+                            ✨ Limpiar jardín
+                        </button>
+                    </div>
+
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950 mb-1">
+                        🌷 El Jardín Secreto de <span class="text-pink-600">Ainhoa</span> 🌷
+                    </h3>
+                    <p class="text-xs sm:text-sm text-purple-700 mb-3">
+                        Toca o haz clic en cualquier parte del césped para plantar flores mágicas y mariposas para Ainhoa.
+                    </p>
+
+                    <div id="interactive-garden" onclick="plantFlowerInGarden(event)" class="relative w-full h-64 sm:h-72 rounded-2xl bg-gradient-to-b from-sky-100 via-emerald-100 to-emerald-200 border-2 border-emerald-300 shadow-inner overflow-hidden cursor-pointer select-none">
+                        <!-- Sol pastel y nubecitas del jardín -->
+                        <div class="absolute top-3 right-5 text-3xl animate-spin pointer-events-none" style="animation-duration: 20s;">☀️</div>
+                        <div class="absolute top-4 left-6 text-2xl opacity-80 animate-float-slow pointer-events-none">☁️</div>
+                        <div class="absolute bottom-3 inset-x-0 text-center text-[11px] font-bold text-emerald-800/70 pointer-events-none">
+                            Toca donde quieras para hacer florecer el jardín de Ainhoa 🌸
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         PANTALLA 4 (MODAL): RECOMPENSA DESBLOQUEADA
+         ========================================== -->
+    <div id="modal-reward" class="fixed inset-0 bg-purple-950/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white border-4 border-pink-300 rounded-3xl max-w-md w-full p-6 text-center shadow-2xl animate-pop">
+            <div class="inline-block bg-yellow-100 text-amber-700 text-xs font-extrabold px-3 py-1 rounded-full mb-2 border border-amber-300">
+                🎉 ¡NUEVO RECUERDO PARA AINHOA!
+            </div>
+            <div id="reward-modal-icon" class="w-24 h-24 mx-auto my-2 rounded-3xl bg-gradient-to-tr from-pink-100 to-purple-100 border-2 border-pink-200 flex items-center justify-center text-5xl shadow-inner animate-bounce">
+                🏅
+            </div>
+            <h3 id="reward-modal-title" class="font-display text-xl font-bold text-purple-950 mb-1">
+                Experta en tonterías
+            </h3>
+            <p id="reward-modal-desc" class="text-sm text-purple-800 mb-5 leading-relaxed">
+                Ainhoa ha desbloqueado este objeto especial y ya está guardado en su Álbum de momentos bonitos.
+            </p>
+            <button onclick="closeRewardModal()" class="magic-btn bg-gradient-to-r from-pink-400 to-purple-500 text-white font-display font-bold text-sm sm:text-base px-8 py-3 rounded-full shadow-lg border-2 border-white w-full">
+                ✨ ¡Genial! Guardar en mi álbum
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         ÁLBUM DE MOMENTOS BONITOS DE AINHOA (MODAL)
+         ========================================== -->
+    <div id="modal-album" class="fixed inset-0 bg-purple-950/60 backdrop-blur-sm z-40 hidden items-center justify-center p-4">
+        <div class="bg-white/95 border-4 border-purple-200 rounded-3xl max-w-xl w-full p-5 sm:p-6 shadow-2xl animate-pop max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🏆</span>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950">
+                        Álbum de momentos bonitos de <span class="text-pink-600">Ainhoa</span>
+                    </h3>
+                </div>
+                <button onclick="closeModal('modal-album')" class="w-8 h-8 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold flex items-center justify-center">
+                    ✕
+                </button>
+            </div>
+            <p class="text-xs sm:text-sm text-purple-700 mb-4">
+                Cada actividad guarda un recuerdo especial para Ainhoa. Cuando consigas los 4, se activará la secuencia final.
+            </p>
+
+            <!-- Grid de los 4 coleccionables -->
+            <div id="album-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                <!-- Se rellena dinámicamente con JS -->
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-purple-100">
+                <button onclick="closeModal('modal-album'); goToScreen('screen-finale');" class="text-xs font-bold text-pink-600 hover:text-pink-800 underline">
+                    ✨ Ir directamente a la pantalla final y jardín de Ainhoa
+                </button>
+                <button onclick="closeModal('modal-album')" class="magic-btn bg-purple-600 text-white font-bold text-xs sm:text-sm px-6 py-2 rounded-full">
+                    Cerrar álbum
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PANTALLA 5 (MODAL): MENSAJES PERSONALIZADOS (SOBRECITOS)
+         ========================================== -->
+    <div id="modal-messages" class="fixed inset-0 bg-purple-950/60 backdrop-blur-sm z-40 hidden items-center justify-center p-4">
+        <div class="bg-white/95 border-4 border-pink-200 rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl animate-pop">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">💌</span>
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-purple-950">
+                        Sobrecitos para <span class="text-pink-600">Ainhoa</span>
+                    </h3>
+                </div>
+                <button onclick="closeModal('modal-messages')" class="w-8 h-8 rounded-full bg-pink-100 hover:bg-pink-200 text-purple-900 font-bold flex items-center justify-center">
+                    ✕
+                </button>
+            </div>
+            <p class="text-xs sm:text-sm text-purple-700 mb-4">
+                Pequeñas notas opcionales guardadas para ti, Ainhoa. Elige qué tipo de sobrecito te apetece abrir ahora:
+            </p>
+
+            <!-- Tres categorías de mensajes -->
+            <div class="grid grid-cols-3 gap-2.5 mb-4">
+                <button onclick="showCustomEnvelope('humor')" class="magic-btn bg-pink-100 hover:bg-pink-200 border-2 border-pink-300 rounded-2xl p-3 flex flex-col items-center text-center">
+                    <span class="text-2xl mb-1">😸</span>
+                    <span class="font-display font-bold text-xs sm:text-sm text-pink-900">De Humor</span>
+                </button>
+                <button onclick="showCustomEnvelope('kind')" class="magic-btn bg-emerald-100 hover:bg-emerald-200 border-2 border-emerald-300 rounded-2xl p-3 flex flex-col items-center text-center">
+                    <span class="text-2xl mb-1">🌿</span>
+                    <span class="font-display font-bold text-xs sm:text-sm text-emerald-900">Amables</span>
+                </button>
+                <button onclick="showCustomEnvelope('personal')" class="magic-btn bg-amber-100 hover:bg-amber-200 border-2 border-amber-300 rounded-2xl p-3 flex flex-col items-center text-center">
+                    <span class="text-2xl mb-1">💖</span>
+                    <span class="font-display font-bold text-xs sm:text-sm text-amber-900">Personales</span>
+                </button>
+            </div>
+
+            <!-- Tarjeta donde aparece el mensaje del sobre -->
+            <div id="envelope-display" class="bg-gradient-to-br from-pink-50 via-purple-50 to-amber-50 border-2 border-pink-200 rounded-2xl p-5 min-h-[120px] flex flex-col items-center justify-center text-center mb-4">
+                <span id="envelope-badge" class="text-[11px] font-extrabold uppercase tracking-wider text-pink-600 bg-white px-3 py-0.5 rounded-full border border-pink-200 mb-2">
+                    Nota para Ainhoa
+                </span>
+                <p id="envelope-text" class="text-sm sm:text-base font-bold text-purple-950 leading-relaxed">
+                    «Se ha detectado un exceso de ternura cerca de Ainhoa. Enviaremos refuerzos de gatitos inmediatamente.» 🐾
+                </p>
+            </div>
+
+            <div class="text-right">
+                <button onclick="closeModal('modal-messages')" class="magic-btn bg-pink-500 text-white font-bold text-xs sm:text-sm px-6 py-2 rounded-full">
+                    Guardar nota ✨
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página suave -->
+    <footer class="relative z-10 text-center py-2 text-xs font-semibold text-purple-800/70">
+        Hecho con cariño para <span class="text-pink-600 font-bold">Ainhoa</span> • Sin prisas, sin perder, solo momentos bonitos ✨
+    </footer>
+
+    <!-- ==========================================
+         LÓGICA INTERACTIVA, SONIDO Y MINIJUEGOS
+         ========================================== -->
+    <script>
+        /* ----------------------------------------------------
+           1. ESTADO GLOBAL DE LA EXPERIENCIA DE AINHOA
+        ---------------------------------------------------- */
+        const state = {
+            soundEnabled: true,
+            machinePowered: false,
+            currentScreen: 'screen-welcome',
+            // Contadores de actividades
+            sillyCount: 0,
+            lastSillyIndex: -1,
+            sillyTimeout: null,
+            starScore: 0,
+            starTimer: 45,
+            starTimedMode: true,
+            starInterval: null,
+            starSpawner: null,
+            calmJustLook: false,
+            calmBreathInterval: null,
+            giftCount: 0,
+            lastGiftIndex: -1,
+            // Los 4 coleccionables del Álbum de Ainhoa
+            rewards: {
+                laugh: {
+                    unlocked: false,
+                    icon: '🏅',
+                    title: 'Insignia «Experta en tonterías»',
+                    desc: 'Concedida oficialmente a Ainhoa por explorar situaciones absurdas y reírse un ratito.'
+                },
+                distract: {
+                    unlocked: false,
+                    icon: '🍯',
+                    title: 'Frasco de estrellitas brillantes',
+                    desc: 'Un pequeño frasco de cristal donde Ainhoa guarda la luz de las estrellas que atrapó.'
+                },
+                calm: {
+                    unlocked: false,
+                    icon: '🌙',
+                    title: 'Luna pequeña de cristal',
+                    desc: 'Un recuerdo sereno para que Ainhoa tenga siempre a mano un minuto de paz.'
+                },
+                surprise: {
+                    unlocked: false,
+                    icon: '🗝️',
+                    title: 'Llave mágica de sorpresas',
+                    desc: 'Desbloqueada por Ainhoa al abrir la caja misteriosa de regalos digitales.'
+                }
+            }
+        };
+
+        /* ----------------------------------------------------
+           2. SINTETIZADOR DE SONIDO SUAVE (WEB AUDIO API)
+        ---------------------------------------------------- */
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function playSfx(type) {
+            if (!state.soundEnabled) return;
+            try {
+                initAudio();
+                if (!audioCtx) return;
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.exponentialRampToValueAtTime(680, now + 0.08);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.09);
+                } else if (type === 'power') {
+                    const notes = [392, 493.88, 587.33, 783.99];
+                    notes.forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+                        gain.gain.setValueAtTime(0.1, now + idx * 0.09);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.35);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + idx * 0.09);
+                        osc.stop(now + idx * 0.09 + 0.36);
+                    });
+                } else if (type === 'star') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(740, now);
+                    osc.frequency.exponentialRampToValueAtTime(1180, now + 0.16);
+                    gain.gain.setValueAtTime(0.09, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.19);
+                } else if (type === 'reward') {
+                    const chord = [523.25, 659.25, 783.99, 1046.5];
+                    chord.forEach((freq, i) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + i * 0.08);
+                        gain.gain.setValueAtTime(0.11, now + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.55);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + i * 0.08);
+                        osc.stop(now + i * 0.08 + 0.56);
+                    });
+                }
+            } catch (e) {
+                // Silenciar si el navegador bloquea el audio antes de interactuar
+            }
+        }
+
+        function toggleSound() {
+            state.soundEnabled = !state.soundEnabled;
+            document.getElementById('sound-icon').textContent = state.soundEnabled ? '🔊' : '🔇';
+            document.getElementById('sound-label').textContent = state.soundEnabled ? 'Sonido: Sí' : 'Sonido: No';
+            if (state.soundEnabled) playSfx('click');
+        }
+
+        /* ----------------------------------------------------
+           3. FONDO ANIMADO DE ESTRELLAS Y PARTÍCULAS AL TOCAR
+        ---------------------------------------------------- */
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let bgStars = [];
+        let burstParticles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Crear estrellas pastel que se mueven lentamente
+        for (let i = 0; i < 42; i++) {
+            bgStars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 2.8 + 1.2,
+                speedY: -(Math.random() * 0.25 + 0.08),
+                alpha: Math.random() * 0.65 + 0.25,
+                color: ['#F472B6', '#C084FC', '#FACC15', '#6EE7B7', '#FFFFFF'][Math.floor(Math.random() * 5)]
+            });
+        }
+
+        function createSparkleBurst(x, y) {
+            const colors = ['#F472B6', '#C084FC', '#FDE047', '#6EE7B7', '#FB7185'];
+            for (let i = 0; i < 12; i++) {
+                const angle = (Math.PI * 2 * i) / 12;
+                const speed = Math.random() * 2.6 + 1;
+                burstParticles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed - 0.5,
+                    r: Math.random() * 3.5 + 2,
+                    alpha: 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+
+        window.addEventListener('pointerdown', (e) => {
+            createSparkleBurst(e.clientX, e.clientY);
+        });
+
+        function animateBackground() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar estrellas flotantes
+            bgStars.forEach(s => {
+                s.y += s.speedY;
+                if (s.y < -10) {
+                    s.y = canvas.height + 10;
+                    s.x = Math.random() * canvas.width;
+                }
+                ctx.save();
+                ctx.globalAlpha = s.alpha;
+                ctx.fillStyle = s.color;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            });
+
+            // Dibujar partículas de toque
+            for (let i = burstParticles.length - 1; i >= 0; i--) {
+                const p = burstParticles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.alpha -= 0.028;
+                if (p.alpha <= 0) {
+                    burstParticles.splice(i, 1);
+                    continue;
+                }
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            requestAnimationFrame(animateBackground);
+        }
+
+        /* ----------------------------------------------------
+           4. PANTALLA 1 Y NAVEGACIÓN ENTRE PANTALLAS
+        ---------------------------------------------------- */
+        window.addEventListener('DOMContentLoaded', () => {
+            animateBackground();
+            renderAlbumGrid();
+
+            // Mecánica Pantalla 1: Al cargar la página la máquina está apagada; tras 1 segundo sus luces se encienden
+            setTimeout(() => {
+                const machine = document.getElementById('machine-container');
+                const aura = document.getElementById('machine-aura');
+                if (machine) {
+                    machine.classList.remove('machine-off');
+                    machine.classList.add('machine-on');
+                }
+                if (aura) {
+                    aura.classList.remove('opacity-0');
+                    aura.classList.add('opacity-100');
+                }
+            }, 950);
+        });
+
+        // Acción del botón «Encender la máquina» (dura menos de 2 segundos para jugar de inmediato)
+        function turnOnMachine() {
+            playSfx('power');
+            const flash = document.getElementById('screen-flash');
+            flash.style.opacity = '0.85';
+            setTimeout(() => {
+                flash.style.opacity = '0';
+            }, 350);
+
+            const screenText = document.getElementById('machine-screen-svg-text');
+            if (screenText) screenText.textContent = '¡LISTA, AINHOA!';
+
+            setTimeout(() => {
+                goToScreen('screen-menu');
+            }, 650);
+        }
+
+        function goToScreen(screenId) {
+            playSfx('click');
+            // Si salimos del modo calma, restaurar el fondo pastel de día
+            if (screenId !== 'screen-calm') {
+                document.body.classList.remove('calm-night-mode');
+                clearInterval(state.calmBreathInterval);
+            }
+
+            const screens = [
+                'screen-welcome',
+                'screen-menu',
+                'screen-laugh',
+                'screen-distract',
+                'screen-calm',
+                'screen-surprise',
+                'screen-finale'
+            ];
+
+            screens.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.classList.add('hidden');
+                    el.classList.remove('flex');
+                }
+            });
+
+            const target = document.getElementById(screenId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('flex');
+            }
+            state.currentScreen = screenId;
+        }
+
+        // Selección de las 4 tarjetas en la Pantalla 2 con sus 3 estados visuales
+        function selectMood(moodKey, btnEl) {
+            playSfx('click');
+            document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('selected-mood'));
+            btnEl.classList.add('selected-mood');
+
+            setTimeout(() => {
+                btnEl.classList.remove('selected-mood');
+                if (moodKey === 'laugh') {
+                    goToScreen('screen-laugh');
+                } else if (moodKey === 'distract') {
+                    goToScreen('screen-distract');
+                    startStarGame();
+                } else if (moodKey === 'calm') {
+                    enterCalmMode();
+                } else if (moodKey === 'surprise') {
+                    resetMysteryBoxView();
+                    goToScreen('screen-surprise');
+                }
+            }, 320);
+        }
+
+        /* ----------------------------------------------------
+           5. MÓDULO A: «QUIERO REÍRME» (FÁBRICA DE TONTERÍAS)
+        ---------------------------------------------------- */
+        const sillySituations = [
+            {
+                text: '«¿Sabes qué dijo el ciego cuando tocó el brazo de una niña depresiva? ... ¡Mucho texto! JAJA» 💀😂',
+                svg: `<svg class="w-28 h-28 animate-bounce" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#1E1B4B" stroke="#F472B6" stroke-width="3.5"/>
+                        <rect x="24" y="34" width="22" height="14" rx="4" fill="#0F172A" stroke="#F9A8D4" stroke-width="2"/>
+                        <rect x="54" y="34" width="22" height="14" rx="4" fill="#0F172A" stroke="#F9A8D4" stroke-width="2"/>
+                        <line x1="46" y1="40" x2="54" y2="40" stroke="#F9A8D4" stroke-width="2.5"/>
+                        <path d="M36 62 Q50 74 64 62" stroke="#FEF08A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                        <text x="12" y="26" font-size="18">📜</text>
+                        <text x="72" y="26" font-size="18">💀</text>
+                      </svg>`
+            },
+            {
+                text: '«¿Sabes qué hace saltar a la gente triste? ... ¡Los puentes! JAJAJA» 🌉🤣',
+                svg: `<svg class="w-28 h-28 animate-float-cat" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#312E81" stroke="#C084FC" stroke-width="3.5"/>
+                        <path d="M16 68 Q50 38 84 68" stroke="#F472B6" stroke-width="4" fill="none"/>
+                        <line x1="16" y1="68" x2="84" y2="68" stroke="#FEF08A" stroke-width="3.5"/>
+                        <line x1="35" y1="56" x2="35" y2="68" stroke="#F9A8D4" stroke-width="2.5"/>
+                        <line x1="50" y1="53" x2="50" y2="68" stroke="#F9A8D4" stroke-width="2.5"/>
+                        <line x1="65" y1="56" x2="65" y2="68" stroke="#F9A8D4" stroke-width="2.5"/>
+                        <text x="40" y="36" font-size="20">😈</text>
+                      </svg>`
+            },
+            {
+                text: '«¿Por qué la niña sin brazos no se puede peinar? ... ¡Porque tiene cáncer! JAJAJ» 🎀💀',
+                svg: `<svg class="w-28 h-28 animate-dance" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="#2E1065" stroke="#FB7185" stroke-width="3.5"/>
+                        <path d="M32 66 L32 44 C32 30 68 30 68 44 L68 66 L60 60 L50 66 L40 60 Z" fill="#FCE7F3" stroke="#F472B6" stroke-width="2.5"/>
+                        <circle cx="43" cy="46" r="3.5" fill="#1E1B4B"/>
+                        <circle cx="57" cy="46" r="3.5" fill="#1E1B4B"/>
+                        <path d="M45 54 Q50 58 55 54" stroke="#1E1B4B" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <text x="15" y="28" font-size="18">🪮</text>
+                        <text x="70" y="28" font-size="18">🤣</text>
+                      </svg>`
+            },
+            {
+                text: '«Ainhoa, vengo a informarte de que hoy eres la directora ejecutiva de las siestas.» 🐱👔',
+                svg: `<svg class="w-28 h-28 animate-float-cat" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="42" fill="#FCE7F3" stroke="#F472B6" stroke-width="3"/>
+                        <polygon points="28,35 24,14 42,26" fill="#F9A8D4"/>
+                        <polygon points="72,35 76,14 58,26" fill="#F9A8D4"/>
+                        <circle cx="50" cy="44" r="20" fill="#FFFFFF" stroke="#F472B6" stroke-width="2.5"/>
+                        <circle cx="43" cy="41" r="2.8" fill="#1E1B4B"/><circle cx="57" cy="41" r="2.8" fill="#1E1B4B"/>
+                        <path d="M46 47 Q50 51 54 47" stroke="#1E1B4B" stroke-width="2" fill="none"/>
+                        <!-- Traje y corbata ejecutiva -->
+                        <path d="M30 82 L40 62 L60 62 L70 82 Z" fill="#312E81"/>
+                        <polygon points="50,62 46,78 50,83 54,78" fill="#F43F5E"/>
+                      </svg>`
+            },
+            {
+                text: '«Pausa musical: Esta banana con gafas de sol ha venido exclusivamente a bailar una melodía corta para Ainhoa.» 🍌🕶️🎶',
+                svg: `<svg class="w-28 h-28 animate-dance" viewBox="0 0 100 100">
+                        <path d="M35 18 C68 25 78 65 42 86 C26 70 25 40 35 18 Z" fill="#FDE047" stroke="#EAB308" stroke-width="3"/>
+                        <!-- Gafas de sol -->
+                        <rect x="33" y="38" width="16" height="10" rx="2" fill="#1E293B"/>
+                        <rect x="53" y="38" width="16" height="10" rx="2" fill="#1E293B"/>
+                        <line x1="49" y1="42" x2="53" y2="42" stroke="#1E293B" stroke-width="3"/>
+                        <path d="M42 56 Q50 63 58 56" stroke="#713F12" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <text x="12" y="30" font-size="16">🎵</text><text x="75" y="28" font-size="16">🎶</text>
+                      </svg>`
+            },
+            {
+                text: '«Esta nube intentó llover corazones para Ainhoa, pero se puso nerviosa y terminó lanzando pequeñas flores.» ☁️🌸',
+                svg: `<svg class="w-28 h-28 animate-float-slow" viewBox="0 0 100 100">
+                        <path d="M22 56 C12 56 10 42 20 38 C20 25 36 22 44 30 C52 20 72 22 76 35 C88 36 90 52 78 56 Z" fill="#FFFFFF" stroke="#93C5FD" stroke-width="3"/>
+                        <circle cx="40" cy="42" r="2.5" fill="#1E293B"/><circle cx="60" cy="42" r="2.5" fill="#1E293B"/>
+                        <ellipse cx="34" cy="45" rx="3" ry="1.8" fill="#F472B6"/><ellipse cx="66" cy="45" rx="3" ry="1.8" fill="#F472B6"/>
+                        <text x="24" y="80" font-size="18">🌸</text>
+                        <text x="46" y="86" font-size="18">🌼</text>
+                        <text x="68" y="79" font-size="18">🌺</text>
+                      </svg>`
+            },
+            {
+                text: '«Ainhoa, pregunta seria: ¿Qué hace una abeja en el gimnasio? ... ¡Zum-ba!» 🐝💪',
+                svg: `<svg class="w-28 h-28 animate-bounce" viewBox="0 0 100 100">
+                        <ellipse cx="50" cy="52" rx="22" ry="16" fill="#FACC15" stroke="#1E293B" stroke-width="3"/>
+                        <path d="M42 37 L42 67 M54 36 L54 68" stroke="#1E293B" stroke-width="5"/>
+                        <ellipse cx="44" cy="30" rx="8" ry="11" fill="#E0F2FE" stroke="#38BDF8" stroke-width="2"/>
+                        <ellipse cx="56" cy="30" rx="8" ry="11" fill="#E0F2FE" stroke="#38BDF8" stroke-width="2"/>
+                        <circle cx="64" cy="49" r="2.5" fill="#1E293B"/>
+                        <!-- Pesitas -->
+                        <line x1="25" y1="74" x2="75" y2="74" stroke="#64748B" stroke-width="4"/>
+                        <circle cx="23" cy="74" r="6" fill="#334155"/><circle cx="77" cy="74" r="6" fill="#334155"/>
+                      </svg>`
+            },
+            {
+                text: '«Informe urgente: Un patito con sombrero de mago declara que hoy Ainhoa está exenta de cualquier estrés.» 🦆🎩✨',
+                svg: `<svg class="w-28 h-28 animate-float-cat" viewBox="0 0 100 100">
+                        <circle cx="50" cy="58" r="24" fill="#FEF08A" stroke="#CA8A04" stroke-width="3"/>
+                        <polygon points="36,38 64,38 50,12" fill="#7E22CE" stroke="#3B0764" stroke-width="2.5"/>
+                        <ellipse cx="66" cy="58" rx="9" ry="5" fill="#FB923C"/>
+                        <circle cx="54" cy="52" r="3" fill="#1E293B"/>
+                      </svg>`
+            },
+            {
+                text: '«¿Qué hace un perro con un taladro, Ainhoa? ... ¡Ta-ladrando!» 🐶🔧',
+                svg: `<svg class="w-28 h-28 animate-dance" viewBox="0 0 100 100">
+                        <circle cx="50" cy="52" r="26" fill="#FDE68A" stroke="#92400E" stroke-width="3"/>
+                        <ellipse cx="26" cy="48" rx="7" ry="14" fill="#B45309"/>
+                        <ellipse cx="74" cy="48" rx="7" ry="14" fill="#B45309"/>
+                        <circle cx="42" cy="48" r="3" fill="#1E293B"/><circle cx="58" cy="48" r="3" fill="#1E293B"/>
+                        <ellipse cx="50" cy="56" rx="5" ry="3.5" fill="#1E293B"/>
+                      </svg>`
+            }
+        ];
+
+        function triggerSilly() {
+            playSfx('click');
+            clearTimeout(state.sillyTimeout);
+
+            document.getElementById('silly-placeholder').classList.add('hidden');
+            document.getElementById('silly-content').classList.add('hidden');
+            const loading = document.getElementById('silly-loading');
+            loading.classList.remove('hidden');
+            loading.classList.add('flex');
+
+            const skipBtn = document.getElementById('btn-silly-skip');
+            skipBtn.classList.remove('hidden');
+
+            // Mostrar primero los 3 chistes pedidos y luego elegir aleatoriamente sin repetir la última
+            let idx;
+            if (state.sillyCount < 3) {
+                idx = state.sillyCount;
+            } else {
+                do {
+                    idx = Math.floor(Math.random() * sillySituations.length);
+                } while (idx === state.lastSillyIndex && sillySituations.length > 1);
+            }
+            state.lastSillyIndex = idx;
+
+            // Mostrar tras 1.1s (o saltar con botón)
+            state.sillyTimeout = setTimeout(() => {
+                showSillyResult(idx);
+            }, 1100);
+        }
+
+        function skipSillyAnimation() {
+            clearTimeout(state.sillyTimeout);
+            showSillyResult(state.lastSillyIndex >= 0 ? state.lastSillyIndex : 0);
+        }
+
+        function showSillyResult(idx) {
+            playSfx('star');
+            const loading = document.getElementById('silly-loading');
+            loading.classList.add('hidden');
+            loading.classList.remove('flex');
+            document.getElementById('btn-silly-skip').classList.add('hidden');
+
+            const item = sillySituations[idx];
+            document.getElementById('silly-svg-box').innerHTML = item.svg;
+            document.getElementById('silly-text').textContent = item.text;
+
+            const content = document.getElementById('silly-content');
+            content.classList.remove('hidden');
+            content.classList.add('flex');
+
+            document.getElementById('btn-silly-generate').innerHTML = '🎲 Otra tontería';
+
+            state.sillyCount++;
+            document.getElementById('silly-count').textContent = Math.min(state.sillyCount, 3);
+
+            // Recompensa al explorar 3 situaciones
+            if (state.sillyCount >= 3 && !state.rewards.laugh.unlocked) {
+                unlockReward('laugh');
+            }
+        }
+
+        /* ----------------------------------------------------
+           6. MÓDULO B: «QUIERO DISTRAERME» (ATRAPA LAS ESTRELLITAS)
+        ---------------------------------------------------- */
+        function toggleStarTimerMode() {
+            playSfx('click');
+            state.starTimedMode = !state.starTimedMode;
+            const btn = document.getElementById('btn-star-mode');
+            const timerBox = document.getElementById('star-timer-box');
+            if (state.starTimedMode) {
+                btn.textContent = '⏱️ Modo: 45s (Cambiar a Libre)';
+                timerBox.classList.remove('hidden');
+            } else {
+                btn.textContent = '∞ Modo: Sin límite de tiempo';
+                timerBox.classList.add('hidden');
+            }
+            startStarGame();
+        }
+
+        function startStarGame() {
+            clearInterval(state.starInterval);
+            clearInterval(state.starSpawner);
+
+            state.starScore = 0;
+            state.starTimer = 45;
+            document.getElementById('star-score').textContent = '0';
+            document.getElementById('star-timer').textContent = '45';
+
+            const overlay = document.getElementById('star-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+
+            const field = document.getElementById('star-playfield');
+            // Limpiar objetos anteriores excepto el overlay
+            Array.from(field.children).forEach(ch => {
+                if (ch.id !== 'star-overlay') ch.remove();
+            });
+
+            // Generar estrellitas periódicamente
+            spawnFallingObject();
+            state.starSpawner = setInterval(spawnFallingObject, 850);
+
+            if (state.starTimedMode) {
+                state.starInterval = setInterval(() => {
+                    state.starTimer--;
+                    document.getElementById('star-timer').textContent = state.starTimer;
+                    if (state.starTimer <= 0) {
+                        endStarGame();
+                    }
+                }, 1000);
+            }
+        }
+
+        function spawnFallingObject() {
+            const field = document.getElementById('star-playfield');
+            if (!field || state.currentScreen !== 'screen-distract') return;
+
+            // Tipos de objetos según diseño:
+            // Estrella normal (+1), Estrella rosa (+2), Corazón brillante (animación especial), Nubecita (confeti)
+            const rand = Math.random();
+            let type = 'normal';
+            let symbol = '⭐';
+            let points = 1;
+
+            if (rand > 0.82) {
+                type = 'cloud';
+                symbol = '☁️';
+                points = 1;
+            } else if (rand > 0.65) {
+                type = 'heart';
+                symbol = '💖';
+                points = 2;
+            } else if (rand > 0.42) {
+                type = 'pink';
+                symbol = '🌟';
+                points = 2;
+            }
+
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'absolute text-3xl sm:text-4xl select-none cursor-pointer transition-transform active:scale-125 focus:outline-none';
+            item.style.left = `${Math.floor(Math.random() * 82) + 6}%`;
+            item.style.top = '-36px';
+            item.textContent = symbol;
+
+            field.appendChild(item);
+
+            // Animación de caída suave
+            let posY = -36;
+            const speed = Math.random() * 1.1 + 0.9;
+            const fallTimer = setInterval(() => {
+                posY += speed;
+                item.style.top = `${posY}px`;
+                if (posY > field.clientHeight + 20) {
+                    clearInterval(fallTimer);
+                    item.remove();
+                }
+            }, 24);
+
+            item.addEventListener('pointerdown', (ev) => {
+                ev.stopPropagation();
+                clearInterval(fallTimer);
+                playSfx('star');
+
+                state.starScore += points;
+                document.getElementById('star-score').textContent = state.starScore;
+
+                const rect = item.getBoundingClientRect();
+                createSparkleBurst(rect.left + 16, rect.top + 16);
+
+                // Efectos especiales según el objeto
+                if (type === 'heart') {
+                    showFloatingFeedback(field, item.style.left, `${posY}px`, '💖 ¡Brillo especial para Ainhoa! +2');
+                } else if (type === 'cloud') {
+                    showFloatingFeedback(field, item.style.left, `${posY}px`, '🎊 ¡Lluvia de confeti! +1');
+                    createSparkleBurst(rect.left + 25, rect.top + 25);
+                } else {
+                    showFloatingFeedback(field, item.style.left, `${posY}px`, `+${points} ✨`);
+                }
+
+                item.remove();
+
+                // Al alcanzar 5 estrellas se desbloquea el frasco virtual de Ainhoa
+                if (state.starScore >= 5 && !state.rewards.distract.unlocked) {
+                    unlockReward('distract');
+                }
+            });
+        }
+
+        function showFloatingFeedback(container, left, top, text) {
+            const tag = document.createElement('div');
+            tag.className = 'absolute z-10 text-xs font-extrabold text-yellow-200 pointer-events-none animate-bounce';
+            tag.style.left = left;
+            tag.style.top = top;
+            tag.textContent = text;
+            container.appendChild(tag);
+            setTimeout(() => tag.remove(), 750);
+        }
+
+        function endStarGame() {
+            clearInterval(state.starInterval);
+            clearInterval(state.starSpawner);
+            const overlay = document.getElementById('star-overlay');
+            document.getElementById('star-overlay-text').textContent =
+                `Ainhoa, atrapaste ${state.starScore} puntos de luz estelar. ¡Puedes jugar siempre que quieras!`;
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+        }
+
+        function stopStarGameAndReturn() {
+            clearInterval(state.starInterval);
+            clearInterval(state.starSpawner);
+            goToScreen('screen-menu');
+        }
+
+        /* ----------------------------------------------------
+           7. MÓDULO C: «QUIERO TRANQUILIDAD» (UN MINUTO DE CALMA)
+        ---------------------------------------------------- */
+        const calmQuotes = [
+            '«Ainhoa, está bien ir despacio. Este momento es solo para que descanses la mente.»',
+            '«Respira poquito a poco, Ainhoa. No tienes que resolver todo hoy.»',
+            '«Incluso las estrellas más bonitas necesitan oscuridad y calma para brillar, Ainhoa.»'
+        ];
+
+        function enterCalmMode() {
+            document.body.classList.add('calm-night-mode');
+            goToScreen('screen-calm');
+            startBreathingCycle();
+        }
+
+        // Secuencia de respiración: 4s crece, 1s permanece grande, 4s disminuye
+        function startBreathingCycle() {
+            clearInterval(state.calmBreathInterval);
+            const star = document.getElementById('breathing-star-wrapper');
+            const label = document.getElementById('calm-breath-text');
+
+            function runCycle() {
+                if (state.currentScreen !== 'screen-calm') return;
+                // 1. Aumenta durante 4 segundos
+                star.style.transitionDuration = '4000ms';
+                star.className = 'relative z-10 flex items-center justify-center w-24 h-24 rounded-full pointer-events-none breath-inhale';
+                if (label) label.textContent = 'Inhala suavemente, Ainhoa... (4s)';
+
+                // 2. Permanece grande durante 1 segundo
+                setTimeout(() => {
+                    if (state.currentScreen !== 'screen-calm') return;
+                    star.style.transitionDuration = '1000ms';
+                    star.className = 'relative z-10 flex items-center justify-center w-24 h-24 rounded-full pointer-events-none breath-hold';
+                    if (label) label.textContent = 'Mantén el aire un instante... (1s)';
+                }, 4000);
+
+                // 3. Disminuye durante 4 segundos
+                setTimeout(() => {
+                    if (state.currentScreen !== 'screen-calm') return;
+                    star.style.transitionDuration = '4000ms';
+                    star.className = 'relative z-10 flex items-center justify-center w-24 h-24 rounded-full pointer-events-none breath-exhale';
+                    if (label) label.textContent = 'Suelta el aire despacio... (4s)';
+                }, 5000);
+            }
+
+            runCycle();
+            state.calmBreathInterval = setInterval(runCycle, 9000);
+        }
+
+        function toggleJustLookMode() {
+            playSfx('click');
+            state.calmJustLook = !state.calmJustLook;
+            const guide = document.getElementById('calm-breath-guide');
+            const btn = document.getElementById('btn-calm-just-look');
+            if (state.calmJustLook) {
+                guide.classList.add('opacity-0');
+                btn.textContent = '🌬️ Mostrar guía de respiración';
+            } else {
+                guide.classList.remove('opacity-0');
+                btn.textContent = '👁️ Solo quiero mirar';
+            }
+        }
+
+        function spawnCalmStar(ev) {
+            playSfx('star');
+            const sky = document.getElementById('calm-sky-box');
+            const rect = sky.getBoundingClientRect();
+            const x = ev.clientX - rect.left;
+            const y = ev.clientY - rect.top;
+
+            const s = document.createElement('div');
+            s.className = 'absolute text-xl pointer-events-none animate-pulse select-none';
+            s.style.left = `${x - 10}px`;
+            s.style.top = `${y - 10}px`;
+            s.textContent = ['✨', '🌟', '⭐', '💫'][Math.floor(Math.random() * 4)];
+            sky.appendChild(s);
+
+            document.getElementById('calm-quote').textContent =
+                calmQuotes[Math.floor(Math.random() * calmQuotes.length)];
+        }
+
+        function claimCalmReward() {
+            if (!state.rewards.calm.unlocked) {
+                unlockReward('calm');
+            } else {
+                openModal('modal-album');
+            }
+        }
+
+        function exitCalmMode() {
+            document.body.classList.remove('calm-night-mode');
+            clearInterval(state.calmBreathInterval);
+            goToScreen('screen-menu');
+        }
+
+        /* ----------------------------------------------------
+           8. MÓDULO D: «QUIERO UNA SORPRESA» (CAJA MISTERIOSA)
+        ---------------------------------------------------- */
+        const mysteryGifts = [
+            {
+                icon: '💐',
+                tag: 'Ilustración floral',
+                title: 'Ramo de flores mágicas para Ainhoa',
+                desc: 'Un ramo digital de tulipanes y flores pastel que nunca se marchitan, para alegrar la pantalla de Ainhoa.'
+            },
+            {
+                icon: '🐱💖',
+                tag: 'Ternura',
+                title: 'Un gatito lanzando un beso',
+                desc: '¡Muak! Este pequeño gatito guardaba un abrazo y un besito volador especialmente para Ainhoa.'
+            },
+            {
+                icon: '🎟️',
+                tag: 'Cupón oficial',
+                title: 'Vale por cero preocupaciones',
+                desc: 'Este cupón autoriza a Ainhoa a tomarse el resto del día con calma, comer algo rico y descansar.'
+            },
+            {
+                icon: '🌌',
+                tag: 'Pequeño dibujo',
+                title: 'La Constelación de Ainhoa',
+                desc: 'Un mapa estelar dibujado a mano donde todas las estrellitas forman el nombre de Ainhoa en el cielo.'
+            },
+            {
+                icon: '☕🍫',
+                tag: 'Momento calentito',
+                title: 'Tacita virtual de chocolate con nubes',
+                desc: 'Una bebida calentita imaginaria con malvaviscos suaves para acompañar a Ainhoa hoy.'
+            },
+            {
+                icon: '⚖️😂',
+                tag: 'Toque de humor',
+                title: 'Certificado de Razón Absoluta',
+                desc: 'Documento oficial que certifica que Ainhoa tiene el 100% de la razón en su próxima conversación.'
+            },
+            {
+                icon: '🌠',
+                tag: 'Deseo guardado',
+                title: 'Estrella fugaz embotellada',
+                desc: 'Pide un deseo en silencio, Ainhoa. Esta estrellita fugaz lo guardará por ti.'
+            },
+            {
+                icon: '💌',
+                tag: 'Mensaje bonito',
+                title: 'Recordatorio para Ainhoa',
+                desc: 'Ainhoa, gracias por ser tú. Quien hizo esta máquina quería recordarte lo especial que eres.'
+            }
+        ];
+
+        function resetMysteryBoxView() {
+            document.getElementById('mystery-box-closed').classList.remove('hidden');
+            const rev = document.getElementById('mystery-gift-revealed');
+            rev.classList.add('hidden');
+            rev.classList.remove('flex');
+            document.getElementById('btn-open-box').textContent = '🎁 Abrir caja para Ainhoa';
+        }
+
+        function openMysteryBox() {
+            playSfx('click');
+            const boxSvg = document.getElementById('mystery-box-svg');
+            boxSvg.classList.remove('animate-shake');
+            void boxSvg.offsetWidth; // reflow
+            boxSvg.classList.add('animate-shake');
+
+            // Tiembla durante medio segundo y se abre con destello
+            setTimeout(() => {
+                playSfx('power');
+
+                let idx;
+                do {
+                    idx = Math.floor(Math.random() * mysteryGifts.length);
+                } while (idx === state.lastGiftIndex && mysteryGifts.length > 1);
+                state.lastGiftIndex = idx;
+
+                const gift = mysteryGifts[idx];
+                document.getElementById('mystery-box-closed').classList.add('hidden');
+
+                document.getElementById('gift-illustration').textContent = gift.icon;
+                document.getElementById('gift-tag').textContent = gift.tag;
+                document.getElementById('gift-title').textContent = gift.title;
+                document.getElementById('gift-desc').textContent = gift.desc;
+
+                const rev = document.getElementById('mystery-gift-revealed');
+                rev.classList.remove('hidden');
+                rev.classList.add('flex');
+
+                document.getElementById('btn-open-box').textContent = '🎁 Descubrir otro regalo para Ainhoa';
+
+                state.giftCount = Math.min(8, state.giftCount + 1);
+                document.getElementById('gift-count').textContent = state.giftCount;
+
+                if (!state.rewards.surprise.unlocked) {
+                    unlockReward('surprise');
+                }
+            }, 500);
+        }
+
+        /* ----------------------------------------------------
+           9. SISTEMA DE RECOMPENSAS Y ÁLBUM DE AINHOA (PANTALLA 4)
+        ---------------------------------------------------- */
+        function unlockReward(key) {
+            const r = state.rewards[key];
+            if (!r || r.unlocked) return;
+            r.unlocked = true;
+
+            playSfx('reward');
+
+            // Mostrar insignia en la tarjeta del menú
+            const checkEl = document.getElementById(`check-${key}`);
+            if (checkEl) checkEl.classList.remove('hidden');
+
+            updateProgressCounter();
+            renderAlbumGrid();
+
+            // Mostrar modal de recompensa
+            document.getElementById('reward-modal-icon').textContent = r.icon;
+            document.getElementById('reward-modal-title').textContent = r.title;
+            document.getElementById('reward-modal-desc').textContent = r.desc;
+            openModal('modal-reward');
+        }
+
+        function closeRewardModal() {
+            closeModal('modal-reward');
+            // Si ya completó los 4 recuerdos, mostrar botón de sorpresa final
+            const totalUnlocked = Object.values(state.rewards).filter(r => r.unlocked).length;
+            if (totalUnlocked === 4) {
+                document.getElementById('btn-finale-ready').classList.remove('hidden');
+            }
+        }
+
+        function updateProgressCounter() {
+            const totalUnlocked = Object.values(state.rewards).filter(r => r.unlocked).length;
+            document.getElementById('badge-counter').textContent = `${totalUnlocked}/4`;
+            if (totalUnlocked === 4) {
+                document.getElementById('btn-finale-ready').classList.remove('hidden');
+            }
+        }
+
+        function renderAlbumGrid() {
+            const grid = document.getElementById('album-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            Object.keys(state.rewards).forEach(key => {
+                const r = state.rewards[key];
+                const card = document.createElement('div');
+                card.className = `p-4 rounded-2xl border-2 flex items-start gap-3.5 transition ${
+                    r.unlocked
+                        ? 'bg-gradient-to-br from-pink-50 to-purple-50 border-pink-300 shadow-sm'
+                        : 'bg-gray-50/80 border-gray-200 opacity-65'
+                }`;
+                card.innerHTML = `
+                    <div class="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-3xl shadow-sm shrink-0 border border-purple-100">
+                        ${r.unlocked ? r.icon : '🔒'}
+                    </div>
+                    <div class="text-left">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                            r.unlocked ? 'bg-pink-100 text-pink-700' : 'bg-gray-200 text-gray-600'
+                        }">
+                            ${r.unlocked ? '✨ Desbloqueado por Ainhoa' : 'Por descubrir'}
+                        </span>
+                        <h4 class="font-display font-bold text-sm sm:text-base text-purple-950 mt-1">${r.title}</h4>
+                        <p class="text-xs text-purple-800/80 mt-0.5 leading-snug">${r.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        /* ----------------------------------------------------
+           10. PANTALLA 5: MENSAJES PERSONALIZADOS PARA AINHOA
+        ---------------------------------------------------- */
+        const customMessages = {
+            humor: [
+                '«Se ha detectado un exceso de ternura en la zona de Ainhoa. Enviaremos refuerzos de gatitos inmediatamente.» 🐾',
+                '«Aviso oficial de la máquina: Ainhoa queda libre de cualquier aburrimiento durante las próximas 24 horas.» 🚨✨',
+                '«Dato científico del día: El 99% de los gatitos aprueban la sonrisa de Ainhoa.» 🐱📊'
+            ],
+            kind: [
+                '«Ainhoa, no todos los días tienen que ser extraordinarios. A veces, con que haya un pequeño momento bonito, ya vale.» 🌸',
+                '«Recuerda ser igual de amable contigo misma que como lo eres con los demás, Ainhoa.» 🌿',
+                '«Paso a paso, Ainhoa. Mereces ratitos de paz donde nadie te pida nada.» ☁️✨'
+            ],
+            personal: [
+                '«Ainhoa, hice este pequeño rincón pensando en sacarte una sonrisa. Espero haberlo conseguido, aunque sea un poquito.» 💖',
+                '«Cada botón y estrellita de esta página lleva tu nombre, Ainhoa, porque quería regalarte algo único.» 🌟',
+                '«Cuando quieras distraerte, reírte o respirar tranquila, esta máquina siempre estará aquí para ti, Ainhoa.» 💌'
+            ]
+        };
+
+        function showCustomEnvelope(category) {
+            playSfx('star');
+            const list = customMessages[category];
+            const msg = list[Math.floor(Math.random() * list.length)];
+            const badge = document.getElementById('envelope-badge');
+            const textEl = document.getElementById('envelope-text');
+
+            if (category === 'humor') badge.textContent = '😹 Sobre de Humor para Ainhoa';
+            if (category === 'kind') badge.textContent = '🌿 Sobre Amable para Ainhoa';
+            if (category === 'personal') badge.textContent = '💖 Sobre Personal para Ainhoa';
+
+            textEl.textContent = msg;
+        }
+
+        /* ----------------------------------------------------
+           11. PANTALLA 6: JARDÍN INTERACTIVO DE AINHOA
+        ---------------------------------------------------- */
+        function openGardenView() {
+            playSfx('power');
+            document.getElementById('finale-card-view').classList.add('hidden');
+            const garden = document.getElementById('finale-garden-view');
+            garden.classList.remove('hidden');
+            garden.classList.add('flex');
+        }
+
+        function closeGardenView() {
+            playSfx('click');
+            const garden = document.getElementById('finale-garden-view');
+            garden.classList.add('hidden');
+            garden.classList.remove('flex');
+            document.getElementById('finale-card-view').classList.remove('hidden');
+        }
+
+        function plantFlowerInGarden(ev) {
+            playSfx('star');
+            const garden = document.getElementById('interactive-garden');
+            const rect = garden.getBoundingClientRect();
+            const x = ev.clientX - rect.left;
+            const y = ev.clientY - rect.top;
+
+            const flowers = ['🌸', '🌷', '🌺', '🌻', '🌼', '🦋', '🍀', '✨'];
+            const el = document.createElement('div');
+            el.className = 'garden-flower absolute text-2xl sm:text-3xl pointer-events-none select-none animate-pop';
+            el.style.left = `${x - 14}px`;
+            el.style.top = `${y - 16}px`;
+            el.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            garden.appendChild(el);
+        }
+
+        function clearGarden() {
+            playSfx('click');
+            document.querySelectorAll('#interactive-garden .garden-flower').forEach(f => f.remove());
+        }
+
+        /* ----------------------------------------------------
+           12. UTILIDADES DE MODALES
+        ---------------------------------------------------- */
+        function openModal(id) {
+            playSfx('click');
+            const m = document.getElementById(id);
+            if (m) {
+                m.classList.remove('hidden');
+                m.classList.add('flex');
+            }
+        }
+
+        function closeModal(id) {
+            playSfx('click');
+            const m = document.getElementById(id);
+            if (m) {
+                m.classList.add('hidden');
+                m.classList.remove('flex');
+            }
+        }
+    </script>
+</body>
+</html>
